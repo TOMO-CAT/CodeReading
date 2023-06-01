@@ -23,21 +23,22 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 // THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef DISRUPTOR_RING_BUFFER_H_  // NOLINT
-#define DISRUPTOR_RING_BUFFER_H_  // NOLINT
+#pragma once
 
 #include <array>
-#include "utils.h"
+#include <cstdint>
+
+#include "disruptor/utils.h"
 
 namespace disruptor {
 
-constexpr size_t kDefaultRingBufferSize = 1024;
+constexpr std::size_t kDefaultRingBufferSize = 1024;
 
 // Ring buffer implemented with a fixed array.
 //
 // @param <T> event type
 // @param <N> size of the ring
-template <typename T, size_t N = kDefaultRingBufferSize>
+template <typename T, std::size_t N = kDefaultRingBufferSize>
 class RingBuffer {
  public:
   // Construct a RingBuffer with the full option set.
@@ -48,16 +49,18 @@ class RingBuffer {
   // entries in the ring.
   // @param wait_strategy_option waiting strategy employed by
   // processors_to_track waiting in entries becoming available.
-  RingBuffer(const std::array<T, N>& events) : events_(events) {}
+  explicit RingBuffer(const std::array<T, N>& events) : events_(events) {
+  }
 
-  static_assert(((N > 0) && ((N & (~N + 1)) == N)),
-                "RingBuffer's size must be a positive power of 2");
+  static_assert(((N > 0) && ((N & (~N + 1)) == N)), "RingBuffer's size must be a positive power of 2");
 
   // Get the event for a given sequence in the RingBuffer.
   //
   // @param sequence for the event
   // @return event reference at the specified sequence position.
-  T& operator[](const int64_t& sequence) { return events_[sequence & (N - 1)]; }
+  T& operator[](const int64_t& sequence) {
+    return events_[sequence & (N - 1)];
+  }
 
   const T& operator[](const int64_t& sequence) const {
     return events_[sequence & (N - 1)];
@@ -70,5 +73,3 @@ class RingBuffer {
 };
 
 };  // namespace disruptor
-
-#endif  // DISRUPTOR_RING_BUFFER_H_ NOLINT

@@ -25,16 +25,17 @@
 
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MODULE WaitStrategyTest
-#include <boost/test/unit_test.hpp>
+#include "disruptor/wait_strategy.h"
 
-#include <disruptor/wait_strategy.h>
+#include <boost/test/unit_test.hpp>
 
 namespace disruptor {
 namespace test {
 
 template <typename W>
 struct StrategyFixture {
-  StrategyFixture() : alerted(false) {}
+  StrategyFixture() : alerted(false) {
+  }
 
   Sequence cursor;
   Sequence sequence_1;
@@ -58,8 +59,7 @@ BOOST_AUTO_TEST_CASE(WaitForCursor) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(
-        strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted));
   });
 
   BOOST_CHECK_EQUAL(return_value.load(), kInitialCursorValue);
@@ -75,17 +75,15 @@ BOOST_AUTO_TEST_CASE(SignalTimeoutWaitingOnCursor) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents,
-                                        alerted,
-                                        std::chrono::microseconds(1L)));
+    return_value.store(
+        strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted, std::chrono::microseconds(1L)));
   });
 
   waiter.join();
   BOOST_CHECK_EQUAL(return_value.load(), kTimeoutSignal);
 
   std::thread waiter2([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents,
-                                        alerted, std::chrono::seconds(1L)));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted, std::chrono::seconds(1L)));
   });
 
   cursor.IncrementAndGet(1L);
@@ -98,8 +96,7 @@ BOOST_AUTO_TEST_CASE(WaitForDependents) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor,
-                                        allDependents(), alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, allDependents(), alerted));
   });
 
   cursor.IncrementAndGet(1L);
@@ -122,8 +119,7 @@ BOOST_AUTO_TEST_CASE(SignalAlertWaitingOnDependents) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor,
-                                        allDependents(), alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, allDependents(), alerted));
   });
 
   cursor.IncrementAndGet(1L);
@@ -153,8 +149,7 @@ BOOST_AUTO_TEST_CASE(WaitForCursor) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(
-        strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted));
   });
 
   BOOST_CHECK_EQUAL(return_value.load(), kInitialCursorValue);
@@ -170,17 +165,15 @@ BOOST_AUTO_TEST_CASE(SignalTimeoutWaitingOnCursor) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents,
-                                        alerted,
-                                        std::chrono::microseconds(1L)));
+    return_value.store(
+        strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted, std::chrono::microseconds(1L)));
   });
 
   waiter.join();
   BOOST_CHECK_EQUAL(return_value.load(), kTimeoutSignal);
 
   std::thread waiter2([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents,
-                                        alerted, std::chrono::seconds(1L)));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted, std::chrono::seconds(1L)));
   });
 
   cursor.IncrementAndGet(1L);
@@ -193,8 +186,7 @@ BOOST_AUTO_TEST_CASE(WaitForDependents) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor,
-                                        allDependents(), alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, allDependents(), alerted));
   });
 
   cursor.IncrementAndGet(1L);
@@ -217,8 +209,7 @@ BOOST_AUTO_TEST_CASE(SignalAlertWaitingOnDependents) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor,
-                                        allDependents(), alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, allDependents(), alerted));
   });
 
   cursor.IncrementAndGet(1L);
@@ -248,8 +239,7 @@ BOOST_AUTO_TEST_CASE(WaitForCursor) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(
-        strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted));
   });
 
   BOOST_CHECK_EQUAL(return_value.load(), kInitialCursorValue);
@@ -265,17 +255,15 @@ BOOST_AUTO_TEST_CASE(SignalTimeoutWaitingOnCursor) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents,
-                                        alerted,
-                                        std::chrono::microseconds(1L)));
+    return_value.store(
+        strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted, std::chrono::microseconds(1L)));
   });
 
   waiter.join();
   BOOST_CHECK_EQUAL(return_value.load(), kTimeoutSignal);
 
   std::thread waiter2([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents,
-                                        alerted, std::chrono::seconds(1L)));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted, std::chrono::seconds(1L)));
   });
 
   cursor.IncrementAndGet(1L);
@@ -288,8 +276,7 @@ BOOST_AUTO_TEST_CASE(WaitForDependents) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor,
-                                        allDependents(), alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, allDependents(), alerted));
   });
 
   cursor.IncrementAndGet(1L);
@@ -312,8 +299,7 @@ BOOST_AUTO_TEST_CASE(SignalAlertWaitingOnDependents) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor,
-                                        allDependents(), alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, allDependents(), alerted));
   });
 
   cursor.IncrementAndGet(1L);
@@ -343,8 +329,7 @@ BOOST_AUTO_TEST_CASE(WaitForCursor) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(
-        strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted));
   });
 
   BOOST_CHECK_EQUAL(return_value.load(), kInitialCursorValue);
@@ -360,11 +345,12 @@ BOOST_AUTO_TEST_CASE(SignalAlertWaitingOnCursor) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(
-        strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted));
   });
 
-  std::thread([this]() { strategy.SignalAllWhenBlocking(); }).join();
+  std::thread([this]() {
+    strategy.SignalAllWhenBlocking();
+  }).join();
   BOOST_CHECK_EQUAL(return_value.load(), kInitialCursorValue);
 
   std::thread([this]() {
@@ -380,17 +366,15 @@ BOOST_AUTO_TEST_CASE(SignalTimeoutWaitingOnCursor) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents,
-                                        alerted,
-                                        std::chrono::microseconds(1L)));
+    return_value.store(
+        strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted, std::chrono::microseconds(1L)));
   });
 
   waiter.join();
   BOOST_CHECK_EQUAL(return_value.load(), kTimeoutSignal);
 
   std::thread waiter2([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents,
-                                        alerted, std::chrono::seconds(1L)));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, dependents, alerted, std::chrono::seconds(1L)));
   });
 
   cursor.IncrementAndGet(1L);
@@ -403,8 +387,7 @@ BOOST_AUTO_TEST_CASE(WaitForDependents) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor,
-                                        allDependents(), alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, allDependents(), alerted));
   });
 
   cursor.IncrementAndGet(1L);
@@ -427,8 +410,7 @@ BOOST_AUTO_TEST_CASE(SignalAlertWaitingOnDependents) {
   std::atomic<int64_t> return_value(kInitialCursorValue);
 
   std::thread waiter([this, &return_value]() {
-    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor,
-                                        allDependents(), alerted));
+    return_value.store(strategy.WaitFor(kFirstSequenceValue, cursor, allDependents(), alerted));
   });
 
   cursor.IncrementAndGet(1L);

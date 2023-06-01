@@ -23,36 +23,40 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 // THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef DISRUPTOR_SEQUENCE_BARRIER_H_  // NOLINT
-#define DISRUPTOR_SEQUENCE_BARRIER_H_  // NOLINT
+#pragma once
 
 #include <memory>
 #include <vector>
 
-#include "disruptor/wait_strategy.h"
 #include "disruptor/sequence.h"
+#include "disruptor/wait_strategy.h"
 
 namespace disruptor {
 
+/**
+ * @brief 同步机制, 控制消费者线程对消息队列的访问
+ *
+ * @tparam W 等待策略
+ */
 template <typename W = kDefaultWaitStrategy>
 class SequenceBarrier {
  public:
-  SequenceBarrier(const Sequence& cursor,
-                  const std::vector<Sequence*>& dependents)
-      : cursor_(cursor), dependents_(dependents), alerted_(false) {}
+  SequenceBarrier(const Sequence& cursor, const std::vector<Sequence*>& dependents)
+      : cursor_(cursor), dependents_(dependents), alerted_(false) {
+  }
 
   int64_t WaitFor(const int64_t& sequence) {
     return wait_strategy_.WaitFor(sequence, cursor_, dependents_, alerted_);
   }
 
   template <class R, class P>
-  int64_t WaitFor(const int64_t& sequence,
-                  const std::chrono::duration<R, P>& timeout) {
-    return wait_strategy_.WaitFor(sequence, cursor_, dependents_, alerted_,
-                                  timeout);
+  int64_t WaitFor(const int64_t& sequence, const std::chrono::duration<R, P>& timeout) {
+    return wait_strategy_.WaitFor(sequence, cursor_, dependents_, alerted_, timeout);
   }
 
-  int64_t get_sequence() const { return cursor_.sequence(); }
+  int64_t get_sequence() const {
+    return cursor_.sequence();
+  }
 
   bool alerted() const {
     return alerted_.load(std::memory_order::memory_order_acquire);
@@ -70,5 +74,3 @@ class SequenceBarrier {
 };
 
 };  // namespace disruptor
-
-#endif  // DISRUPTOR_DEPENDENCY_BARRIER_H_ NOLINT
