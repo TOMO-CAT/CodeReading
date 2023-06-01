@@ -1,0 +1,11 @@
+cc_binary(
+    name='hello_world',
+    srcs=[
+        'hello_world.cpp',
+    ],
+    deps=[
+        '//cpp_free_mock:cpp_free_mock',
+        '//thirdparty/gmock-1.8.0:gmock_lib',
+        '//thirdparty/gtest-1.8.0:gtest_lib',
+    ],
+)

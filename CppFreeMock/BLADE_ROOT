@@ -1,0 +1,41 @@
+cc_config(
+    cxxflags=['-std=c++17'],
+    optimize='-O2',
+    cxx_warnings=[
+        '-Wno-invalid-offsetof',
+        '-Wnon-virtual-dtor',
+        '-Woverloaded-virtual',
+        '-Wvla',
+        '-Werror=conversion-null',
+        '-Werror=non-virtual-dtor',
+        '-Werror=overloaded-virtual',
+        '-Werror=reorder',
+        '-Werror=vla',
+        # 临时屏蔽 -Wstrict-aliasing, 后续修复
+        '-fno-strict-aliasing',
+        '-Wno-deprecated-copy',
+    ],
+    extra_incs=[
+        'thirdparty/coost/include',
+        'thirdparty/gmock-1.8.0/include',
+        'thirdparty/gtest-1.8.0/include',
+    ],
+)
+
+cc_test_config(
+    # 开启 gperftools 的 HEAPCHECK, 空表示不开启
+    heap_check='',
+    # 测试程序是否默认动态链接, 可以减少磁盘开销
+    dynamic_link=True,
+    # tcmalloc 库, blade deps 格式
+    gperftools_libs=['#tcmalloc'],
+    # tcmalloc_debug 库, blade deps 格式
+    gperftools_debug_libs=['#tcmalloc_debug'],
+    # gtest 的库, blade deps 格式
+    gtest_libs=[
+        '//thirdparty/gtest-1.8.0:gtest',
+        '#pthread'
+    ],
+    gtest_main_libs=['//thirdparty/gtest-1.8.0:gtest_main'],
+    pprof_path='/usr/local/bin/pprof',
+)

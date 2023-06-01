@@ -1,0 +1,116 @@
+cc_test(
+    name='test_anonymous_mocker',
+    srcs=[
+        'test_anonymous_mocker.cpp',
+    ],
+    deps=[
+        '//cpp_free_mock:cpp_free_mock',
+        '//thirdparty/gtest-1.8.0:gtest',
+        '//thirdparty/gmock-1.8.0:gmock',
+    ],
+    optimize=['-O0']
+)
+
+cc_test(
+    name='test_global_function',
+    srcs=[
+        'test_global_function.cpp',
+    ],
+    deps=[
+        '//cpp_free_mock:cpp_free_mock',
+        '//thirdparty/gtest-1.8.0:gtest',
+        '//thirdparty/gmock-1.8.0:gmock',
+    ],
+    optimize=['-O0']
+)
+
+cc_test(
+    name='test_large_inherit_hierarchy',
+    srcs=[
+        'test_large_inherit_hierarchy.cpp',
+    ],
+    deps=[
+        '//cpp_free_mock:cpp_free_mock',
+        '//thirdparty/gtest-1.8.0:gtest',
+        '//thirdparty/gmock-1.8.0:gmock',
+    ],
+    optimize=['-O0']
+)
+
+cc_test(
+    name='test_member_function',
+    srcs=[
+        'test_member_function.cpp',
+    ],
+    deps=[
+        '//cpp_free_mock:cpp_free_mock',
+        '//thirdparty/gtest-1.8.0:gtest',
+        '//thirdparty/gmock-1.8.0:gmock',
+    ],
+    optimize=['-O0']
+)
+
+cc_test(
+    name='test_other_library_function',
+    srcs=[
+        'test_other_library_function.cpp',
+    ],
+    deps=[
+        '//cpp_free_mock:cpp_free_mock',
+        '//thirdparty/gtest-1.8.0:gtest',
+        '//thirdparty/gmock-1.8.0:gmock',
+    ],
+    optimize=['-O0']
+)
+
+cc_test(
+    name='test_static_member_function',
+    srcs=[
+        'test_static_member_function.cpp',
+    ],
+    deps=[
+        '//cpp_free_mock:cpp_free_mock',
+        '//thirdparty/gtest-1.8.0:gtest',
+        '//thirdparty/gmock-1.8.0:gmock',
+    ],
+    optimize=['-O0']
+)
+
+cc_test(
+    name='test_throw_exception',
+    srcs=[
+        'test_throw_exception.cpp',
+    ],
+    deps=[
+        '//cpp_free_mock:cpp_free_mock',
+        '//thirdparty/gtest-1.8.0:gtest',
+        '//thirdparty/gmock-1.8.0:gmock',
+    ],
+    optimize=['-O0']
+)
+
+cc_test(
+    name='runtime_patch_test',
+    srcs=[
+        'runtime_patch_test.cpp',
+    ],
+    deps=[
+        '//cpp_free_mock:cpp_free_mock',
+        '//thirdparty/gtest-1.8.0:gtest',
+        '//thirdparty/gmock-1.8.0:gmock',
+    ],
+    optimize=['-O0']
+)
+
+cc_test(
+    name='runtime_patch_impl_test',
+    srcs=[
+        'runtime_patch_impl_test.cpp',
+    ],
+    deps=[
+        '//cpp_free_mock:cpp_free_mock',
+        '//thirdparty/gtest-1.8.0:gtest',
+        '//thirdparty/gmock-1.8.0:gmock',
+    ],
+    optimize=['-O0']
+)

@@ -1,0 +1,32 @@
+prebuilt_cc_library(
+    name='gtest',
+    export_incs=['include'],
+    libpath_pattern='lib',
+    hdrs=[
+        'include/gtest/gtest.h',
+    ],
+    deps=[
+    ],
+    visibility=['PUBLIC'],
+)
+
+prebuilt_cc_library(
+    name='gtest_main',
+    export_incs=['include'],
+    libpath_pattern='lib',
+    hdrs=[
+        'include/gtest/gtest.h'
+    ],
+    visibility=['PUBLIC'],
+)
+
+cc_library(
+    name='gtest_lib',
+    deps=[
+        ':gtest',
+        ':gtest_main',
+    ],
+    warning='no',
+    hdrs=[],
+    visibility=['PUBLIC'],
+)
