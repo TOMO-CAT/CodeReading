@@ -1,0 +1,31 @@
+{
+    "editor.formatOnSave": true,
+    "cpplint.lineLength": 200,
+    "cpplint.filters": [
+        "-legal/copyright",
+        "-build/c++11",
+    ],
+    // clang-foramt bin path
+    "clang-format.executable": "/usr/bin/clang-format",
+    // format on save
+    "python.analysis.ignore": [
+        "**/BUILD/**",
+        "**/BLADE_ROOT/**"
+    ],
+    "python.linting.flake8Args": [
+        "--ignore=F821",
+    ],
+    "cSpell.words": [
+        "itype",
+        "nptl",
+        "pdebug",
+        "PTRACER",
+        "rdynamic",
+        "sptr",
+        "yyyymmddhh",
+        "LMAX's"
+    ],
+    "cSpell.enableFiletypes": [
+        "!jsonc"
+    ],
+}

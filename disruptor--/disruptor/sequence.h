@@ -26,14 +26,14 @@
 #ifndef CACHE_LINE_SIZE_IN_BYTES     // NOLINT
 #define CACHE_LINE_SIZE_IN_BYTES 64  // NOLINT
 #endif                               // NOLINT
-#define ATOMIC_SEQUENCE_PADDING_LENGTH \
-  (CACHE_LINE_SIZE_IN_BYTES - sizeof(std::atomic<int64_t>)) / 8
+#define ATOMIC_SEQUENCE_PADDING_LENGTH (CACHE_LINE_SIZE_IN_BYTES - sizeof(std::atomic<int64_t>)) / 8
 #define SEQUENCE_PADDING_LENGTH (CACHE_LINE_SIZE_IN_BYTES - sizeof(int64_t)) / 8
 
-#ifndef DISRUPTOR_SEQUENCE_H_  // NOLINT
-#define DISRUPTOR_SEQUENCE_H_  // NOLINT
+#pragma once
 
 #include <atomic>
+#include <climits>
+#include <vector>
 
 #include "disruptor/utils.h"
 
@@ -45,51 +45,68 @@ constexpr int64_t kAlertedSignal = -2L;
 constexpr int64_t kTimeoutSignal = -3L;
 constexpr int64_t kFirstSequenceValue = kInitialCursorValue + 1L;
 
-// Sequence counter.
+/**
+ * @brief 跟踪 RingBuffer 中生产者和消费者处理事件的进度
+ *
+ * @note Sequence 的设计旨在提供一种高效的方式来追踪事件处理的进度, 并且支持并发访问, 确保事件以正确的顺序进行处理
+ */
 class Sequence {
  public:
-  // Construct a sequence counter that can be tracked across threads.
-  //
-  // @param initial_value for the counter.
-  Sequence(int64_t initial_value = kInitialCursorValue)
-      : sequence_(initial_value) {}
+  /**
+   * @brief 初始化序列号的值, 未提供初始值时使用 kInitialCursorValue 即 -1
+   *
+   * @param initial_value 序列号初始值
+   */
+  explicit Sequence(int64_t initial_value = kInitialCursorValue) : sequence_(initial_value) {
+  }
 
-  // Get the current value of the {@link Sequence}.
-  //
-  // @return the current value.
+ public:
+  /**
+   * @brief 获取序列号的值
+   *
+   * @return int64_t 序列号值
+   */
   int64_t sequence() const {
     return sequence_.load(std::memory_order::memory_order_acquire);
   }
 
-  // Set the current value of the {@link Sequence}.
-  //
-  // @param the value to which the {@link Sequence} will be set.
+  /**
+   * @brief 设置序列号的值
+   *
+   * @param value
+   */
   void set_sequence(int64_t value) {
     sequence_.store(value, std::memory_order::memory_order_release);
   }
 
-  // Increment and return the value of the {@link Sequence}.
-  //
-  // @param increment the {@link Sequence}.
-  // @return the new value incremented.
+  /**
+   * @brief 增加序列号的值并返回增加后的新值
+   *
+   * @param increment
+   * @return int64_t
+   */
   int64_t IncrementAndGet(const int64_t& increment) {
-    return sequence_.fetch_add(increment,
-                               std::memory_order::memory_order_release) +
-           increment;
+    return sequence_.fetch_add(increment, std::memory_order::memory_order_release) + increment;
   }
 
  private:
-  // padding
+  // 内存填充
   int64_t padding0_[ATOMIC_SEQUENCE_PADDING_LENGTH];
-  // members
+  // 序列号
   std::atomic<int64_t> sequence_;
-  // padding
+  // 内存填充
   int64_t padding1_[ATOMIC_SEQUENCE_PADDING_LENGTH];
 
   DISALLOW_COPY_MOVE_AND_ASSIGN(Sequence);
 };
 
-int64_t GetMinimumSequence(const std::vector<Sequence*>& sequences) {
+/**
+ * @brief 辅助函数, 用于获取一组 Sequence 对象中的最小值
+ *
+ * @param sequences
+ * @return int64_t
+ */
+inline int64_t GetMinimumSequence(const std::vector<Sequence*>& sequences) {
   int64_t minimum = LONG_MAX;
 
   for (Sequence* sequence_ : sequences) {
@@ -98,8 +115,6 @@ int64_t GetMinimumSequence(const std::vector<Sequence*>& sequences) {
   }
 
   return minimum;
-};
+}
 
 };  // namespace disruptor
-
-#endif  // DISRUPTOR_SEQUENCE_H_ NOLINT

@@ -1,0 +1,13 @@
+cc_library(
+    name='disruptor',
+    hdrs=[
+        'claim_strategy.h',
+        'ring_buffer.h',
+        'sequence_barrier.h',
+        'sequence.h',
+        'sequencer.h',
+        'utils.h',
+        'wait_strategy.h',
+    ],
+    deps=[],
+)

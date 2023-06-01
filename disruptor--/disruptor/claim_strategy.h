@@ -23,13 +23,12 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 // THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef DISRUPTOR_CLAIM_STRATEGY_H_  // NOLINT
-#define DISRUPTOR_CLAIM_STRATEGY_H_  // NOLINT
+#pragma once
 
 #include <thread>
 
-#include "disruptor/sequence.h"
 #include "disruptor/ring_buffer.h"
+#include "disruptor/sequence.h"
 
 namespace disruptor {
 
@@ -68,12 +67,10 @@ using kDefaultClaimStrategy = SingleThreadedStrategy<kDefaultRingBufferSize>;
 template <size_t N = kDefaultRingBufferSize>
 class SingleThreadedStrategy {
  public:
-  SingleThreadedStrategy()
-      : last_claimed_sequence_(kInitialCursorValue),
-        last_consumer_sequence_(kInitialCursorValue) {}
+  SingleThreadedStrategy() : last_claimed_sequence_(kInitialCursorValue), last_consumer_sequence_(kInitialCursorValue) {
+  }
 
-  int64_t IncrementAndGet(const std::vector<Sequence*>& dependents,
-                          size_t delta = 1) {
+  int64_t IncrementAndGet(const std::vector<Sequence*>& dependents, size_t delta = 1) {
     const int64_t next_sequence = (last_claimed_sequence_ += delta);
     const int64_t wrap_point = next_sequence - N;
     if (last_consumer_sequence_ < wrap_point) {
@@ -95,8 +92,8 @@ class SingleThreadedStrategy {
     return true;
   }
 
-  void SynchronizePublishing(const int64_t& sequence, const Sequence& cursor,
-                             const size_t& delta) {}
+  void SynchronizePublishing(const int64_t& sequence, const Sequence& cursor, const size_t& delta) {
+  }
 
  private:
   // We do not need to use atomic values since this function is called by a
@@ -111,10 +108,10 @@ class SingleThreadedStrategy {
 template <size_t N = kDefaultRingBufferSize>
 class MultiThreadedStrategy {
  public:
-  MultiThreadedStrategy() {}
+  MultiThreadedStrategy() {
+  }
 
-  int64_t IncrementAndGet(const std::vector<Sequence*>& dependents,
-                          size_t delta = 1) {
+  int64_t IncrementAndGet(const std::vector<Sequence*>& dependents, size_t delta = 1) {
     const int64_t next_sequence = last_claimed_sequence_.IncrementAndGet(delta);
     const int64_t wrap_point = next_sequence - N;
     if (last_consumer_sequence_.sequence() < wrap_point) {
@@ -136,8 +133,7 @@ class MultiThreadedStrategy {
     return true;
   }
 
-  void SynchronizePublishing(const int64_t& sequence, const Sequence& cursor,
-                             const size_t& delta) {
+  void SynchronizePublishing(const int64_t& sequence, const Sequence& cursor, const size_t& delta) {
     int64_t my_first_sequence = sequence - delta;
 
     while (cursor.sequence() < my_first_sequence) {
@@ -154,5 +150,3 @@ class MultiThreadedStrategy {
 };
 
 };  // namespace disruptor
-
-#endif  // DISRUPTOR_CLAIM_STRATEGY_H_ NOLINT

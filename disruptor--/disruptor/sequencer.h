@@ -23,23 +23,25 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 // THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef DISRUPTOR_SEQUENCER_H_  // NOLINT
-#define DISRUPTOR_SEQUENCER_H_  // NOLINT
+#pragma once
+
+#include <vector>
 
 #include "disruptor/claim_strategy.h"
-#include "disruptor/wait_strategy.h"
 #include "disruptor/sequence_barrier.h"
+#include "disruptor/wait_strategy.h"
 
 namespace disruptor {
 
 // Coordinator for claiming sequences for access to a data structures while
 // tracking dependent {@link Sequence}s
-template <typename T, size_t N = kDefaultRingBufferSize,
-          typename C = kDefaultClaimStrategy, typename W = kDefaultWaitStrategy>
+template <typename T, size_t N = kDefaultRingBufferSize, typename C = kDefaultClaimStrategy,
+          typename W = kDefaultWaitStrategy>
 class Sequencer {
  public:
   // Construct a Sequencer with the selected strategies.
-  Sequencer(std::array<T, N> events) : ring_buffer_(events) {}
+  Sequencer(std::array<T, N> events) : ring_buffer_(events) {
+  }
 
   // Set the sequences that will gate publishers to prevent the buffer
   // wrapping.
@@ -61,7 +63,9 @@ class Sequencer {
   // Get the value of the cursor indicating the published sequence.
   //
   // @return value of the cursor for events that have been published.
-  int64_t GetCursor() { return cursor_.sequence(); }
+  int64_t GetCursor() {
+    return cursor_.sequence();
+  }
 
   // Has the buffer capacity left to allocate another sequence. This is a
   // concurrent method so the response should only be taken as an indication
@@ -89,7 +93,9 @@ class Sequencer {
     wait_strategy_.SignalAllWhenBlocking();
   }
 
-  T& operator[](const int64_t& sequence) { return ring_buffer_[sequence]; }
+  T& operator[](const int64_t& sequence) {
+    return ring_buffer_[sequence];
+  }
 
  private:
   // Members
@@ -107,5 +113,3 @@ class Sequencer {
 };
 
 };  // namespace disruptor
-
-#endif  // DISRUPTOR_RING_BUFFER_H_ NOLINT

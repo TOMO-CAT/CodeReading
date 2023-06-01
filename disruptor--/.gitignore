@@ -1,2 +1,11 @@
 build
 cmake
+blade-bin/
+blade-bin
+build64_release/
+build64_debug/
+.cache/
+compile_commands.json
+logs/
+*.out
+cpp_free_mock_back/
