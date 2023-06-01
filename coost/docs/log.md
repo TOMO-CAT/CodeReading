@@ -7,6 +7,16 @@
 * **Level Log**：分 debug、info、warning、error 和 fatal 五种级别，fatal 日志打完后会终止程序运行并打印函数调用栈信息
 * **Topic Log**：按照主题分类存储在不同的文件中，没有级别之分
 
+## 调试
+
+```bash
+xmake -b log                   # build log or log.exe
+xmake r log                    # run log or log.exe
+xmake r log -cout              # also log to terminal
+xmake r log -min_log_level=1   # 0-4: debug,info,warning,error,fatal 
+xmake r log -perf              # performance test
+```
+
 ## 用法
 
 ### 1. Level Log
@@ -96,18 +106,8 @@ CHECK(it != m.end());  // 不能使用 CHECK_NE(it, m.end()), 编译器会报错
 
 ```bash
 git clone https://github.com/ianlancetaylor/libbacktrace.git
-cd libbacktrace
+cd libbacktrace-master
 ./configure
 make -j8
 sudo make install
-```
-
-## 调试
-
-```bash
-xmake -b log                   # build log or log.exe
-xmake r log                    # run log or log.exe
-xmake r log -cout              # also log to terminal
-xmake r log -min_log_level=1   # 0-4: debug,info,warning,error,fatal 
-xmake r log -perf              # performance test
 ```

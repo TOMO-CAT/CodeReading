@@ -12,9 +12,9 @@ __coapi fastring env(const char* name);
 __coapi bool env(const char* name, const char* value);
 
 /**
- * We try to use `/` as the path separator on all platforms. 
- * On windows, `\` in results of the following APIs will be converted to `/`, if 
- * the result does not start with `\\`. 
+ * We try to use `/` as the path separator on all platforms.
+ * On windows, `\` in results of the following APIs will be converted to `/`, if
+ * the result does not start with `\\`.
  *   - homedir()
  *   - cwd()
  *   - exepath()

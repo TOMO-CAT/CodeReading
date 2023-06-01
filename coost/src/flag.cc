@@ -73,7 +73,7 @@ struct Flag {
 };
 
 Flag::Flag(
-    char iden, const char* name, const char* alias, const char* value, 
+    char iden, const char* name, const char* alias, const char* value,
     const char* help, const char* file, int line, void* addr
 ) : iden(iden), lv('5'), inco(false), name(name), alias(alias), value(value),
     help(help), file(file), line(line), addr(addr) {
@@ -188,7 +188,7 @@ inline void Flag::print() const {
 }
 
 void Mod::add_flag(
-    char iden, const char* name, const char* value, const char* help, 
+    char iden, const char* name, const char* value, const char* help,
     const char* file, int line, void* addr, const char* alias) {
     auto f = co::_make_static<Flag>(iden, name, alias, value, help, file, line, addr);
     auto r = flags.emplace(name, f);
@@ -392,7 +392,7 @@ void Mod::make_config(const fastring& exe) {
 // @k:   for -a, -xyz
 // return non-flag elements (etc. hello, -8, -8k, -, --, --- ...)
 co::array<fastring> Mod::analyze_args(
-    const co::array<fastring>& args, co::map<fastring, fastring>& kv, co::array<fastring>& k 
+    const co::array<fastring>& args, co::map<fastring, fastring>& kv, co::array<fastring>& k
 ) {
     co::array<fastring> res;
 
@@ -622,7 +622,7 @@ void Mod::parse_config(const fastring& config) {
 }
 
 void add_flag(
-    char iden, const char* name, const char* value, const char* help, 
+    char iden, const char* name, const char* value, const char* help,
     const char* file, int line, void* addr, const char* alias
 ) {
     mod().add_flag(iden, name, value, help, file, line, addr, alias);

@@ -6,5 +6,6 @@
         "TLOG",
         "WLOG",
         "xmake"
-    ]
+    ],
+    "editor.formatOnSave": true
 }

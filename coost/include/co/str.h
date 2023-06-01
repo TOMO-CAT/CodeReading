@@ -7,12 +7,12 @@
 namespace str {
 
 /**
- * split a string 
+ * split a string
  *   split("x y z", ' ');    ->  [ "x", "y", "z" ]
  *   split("|x|y|", '|');    ->  [ "", "x", "y" ]
  *   split("xooy", "oo");    ->  [ "x", "y"]
  *   split("xooy", 'o', 1);  ->  [ "x", "oy" ]
- * 
+ *
  * @param s  the string, either a null-terminated string or a reference of fastring.
  * @param c  the delimiter, either a single character or a null-terminated string.
  * @param n  max split times, 0 or -1 for unlimited.
@@ -26,10 +26,10 @@ inline co::vector<fastring> split(const fastring& s, const char* c, uint32 n=0) 
 }
 
 /**
- * replace substring in a string with another string 
- *   replace("xooxoox", "oo", "ee");     ->  "xeexeex" 
- *   replace("xooxoox", "oo", "ee", 1);  ->  "xeexoox" 
- * 
+ * replace substring in a string with another string
+ *   replace("xooxoox", "oo", "ee");     ->  "xeexeex"
+ *   replace("xooxoox", "oo", "ee", 1);  ->  "xeexoox"
+ *
  * @param s    the string, either a null-terminated string or a reference of fastring.
  * @param sub  substring to replace.
  * @param to   string replaced to.
@@ -39,12 +39,12 @@ __coapi fastring replace(const char* s, const char* sub, const char* to, uint32 
 __coapi fastring replace(const fastring& s, const char* sub, const char* to, uint32 n=0);
 
 /**
- * trim a string 
- *   trim(" xx\r\n");           ->  "xx"     trim " \t\r\n" by default. 
- *   trim("abxxa", "ab");       ->  "xx"     trim both sides. 
- *   trim("abxxa", "ab", 'l');  ->  "xxa"    trim left only. 
- *   trim("abxxa", "ab", 'r');  ->  "abxx"   trim right only. 
- * 
+ * trim a string
+ *   trim(" xx\r\n");           ->  "xx"     trim " \t\r\n" by default.
+ *   trim("abxxa", "ab");       ->  "xx"     trim both sides.
+ *   trim("abxxa", "ab", 'l');  ->  "xxa"    trim left only.
+ *   trim("abxxa", "ab", 'r');  ->  "abxx"   trim right only.
+ *
  * @param s  the string, either a null-terminated string or a reference of fastring.
  * @param c  characters to be trimed, either a single character or a null-terminated string.
  * @param d  direction, 'l' for left, 'r' for right, 'b' for both sides.
@@ -71,10 +71,10 @@ inline fastring strip(X&& ...x) {
 }
 
 /**
- * convert string to built-in types 
- *   - Returns false or 0 if the conversion failed, and the error code will be set to 
+ * convert string to built-in types
+ *   - Returns false or 0 if the conversion failed, and the error code will be set to
  *     ERANGE or EINVAL. On success, the error code will be 0.
- *   - Call co::error() to get the error number. DO NOT use `errno` directly as it is 
+ *   - Call co::error() to get the error number. DO NOT use `errno` directly as it is
  *     not safe on windows.
  */
 __coapi bool to_bool(const char* s);
@@ -98,7 +98,7 @@ inline double to_double(const fastring& s)    { return to_double(s.c_str()); }
 inline double to_double(const std::string& s) { return to_double(s.c_str()); }
 
 
-// convert built-in types to string 
+// convert built-in types to string
 template<typename T>
 inline fastring from(T t) {
     fastring s(24);

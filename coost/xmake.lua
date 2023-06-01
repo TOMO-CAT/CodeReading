@@ -49,12 +49,6 @@ option("with_libcurl")
     set_description("build with libcurl, required by http::Client")
 option_end()
 
-option("with_backtrace")
-    set_default(false)
-    set_showmenu(true)
-    set_description("build with libbacktrace, for stack trace on linux/mac")
-option_end()
-
 -- build with -fPIC
 option("fpic")
     set_default(false)
@@ -70,14 +64,11 @@ elseif has_config("with_openssl") then
     add_requires("openssl >=1.1.0")
 end 
 
--- if has_config("with_backtrace") then
--- add_requires("libbacktrace")
--- end
 
+add_requires("libbacktrace")
 
 -- include dir
 add_includedirs("include")
-add_includedirs("/usr/local/include")
 
 -- install header files
 add_installfiles("(include/**)", {prefixdir = ""})

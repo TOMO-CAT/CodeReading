@@ -1,17 +1,12 @@
---option("cxxabi")
---    add_cxxincludes("cxxabi.h")
---option_end()
+
 
 target("libco")
     set_kind("$(kind)")
     set_basename("co")
     add_files("**.cc")
-    add_files("/usr/local/lib/libbacktrace.a")
     add_options("with_openssl")
     add_options("with_libcurl")
-    -- if is_plat("linux", "macosx") then
-    --     add_options("with_backtrace")
-    -- end
+
     if not is_plat("windows") then
         add_options("fpic")
     end
@@ -57,13 +52,10 @@ target("libco")
         end
     else
         add_cxflags("-Wno-strict-aliasing")
-        -- if has_config("with_backtrace") then
         add_defines("HAS_BACKTRACE_H")
         add_packages("libbacktrace", { public = true })
-        -- end
-        --if has_config("cxxabi") then
-        --    add_defines("HAS_CXXABI_H")
-        --end
+        add_defines("HAS_CXXABI_H")
+
         if not is_plat("android") then
             add_syslinks("pthread", { public = true })
             add_syslinks("dl")

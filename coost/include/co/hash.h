@@ -10,9 +10,9 @@
 #include "hash/url.h"
 
 /**
- * 64 bit hash 
+ * 64 bit hash
  *
- * @param s  a pointer to the data, it may not work on some systems if s is not 
+ * @param s  a pointer to the data, it may not work on some systems if s is not
  *           8-byte aligned.
  * @param n  size of the data.
  */
@@ -33,11 +33,11 @@ inline uint64 hash64(const std::string& s) {
 }
 
 /**
- * 32 bit hash 
- *   - The result is the lower 32 bit of murmur_hash64 on 64 bit platforms. On 
- *     32 bit platforms, murmur_hash32 will be used instead. 
- * 
- * @param s  a pointer to the data, it may not work on some systems if s is not 
+ * 32 bit hash
+ *   - The result is the lower 32 bit of murmur_hash64 on 64 bit platforms. On
+ *     32 bit platforms, murmur_hash32 will be used instead.
+ *
+ * @param s  a pointer to the data, it may not work on some systems if s is not
  *           4-byte or 8-byte aligned.
  * @param n  size of the data.
  */

@@ -1,5 +1,11 @@
 #include "co/log.h"
 
+#include <backtrace.h>
+#include <cxxabi.h>
+#include <sys/select.h>
+#include <time.h>
+#include <unistd.h>
+
 #include "../co/hook.h"
 #include "co/array.h"
 #include "co/co.h"
@@ -8,21 +14,6 @@
 #include "co/os.h"
 #include "co/str.h"
 #include "co/time.h"
-
-#ifdef _WIN32
-#include "StackWalker.hpp"
-#else
-#include <backtrace.h>
-#include <cxxabi.h>
-#include <sys/select.h>
-#include <unistd.h>
-
-#endif
-#include <time.h>
-
-#ifdef _MSC_VER
-#pragma warning(disable : 4722)
-#endif
 
 DEF_string(log_dir, "logs", ">>#0 log dir, will be created if not exists");
 DEF_string(log_file_name, "", ">>#0 name of log file, use exename if empty");
@@ -90,11 +81,6 @@ inline void log2stderr(const char* s) {
 }
 
 inline void signal_safe_sleep(int ms) {
-#ifdef _WIN32
-  co::hook_sleep(false);
-  ::Sleep(ms);
-  co::hook_sleep(true);
-#else
   struct timeval tv = {0, ms * 1000};
   __sys_api(select)(0, 0, 0, 0, &tv);
 #endif
@@ -715,49 +701,6 @@ void Logger::thread_fun() {
   atomic_swap(&_stop, 2);
 }
 
-#ifdef _WIN32
-class StackTrace : public StackWalker {
- public:
-  static const int kOptions = StackWalker::SymUseSymSrv | StackWalker::RetrieveSymbol | StackWalker::RetrieveLine |
-                              StackWalker::RetrieveModuleInfo;
-
-  StackTrace(uint32 = 0) : StackWalker(kOptions), _f(0), _skip(0) {
-  }
-
-  virtual ~StackTrace() = default;
-
-  void dump_stack(void* f, int skip) {
-    _f = (fs::file*)f;
-    _skip = skip;
-    this->ShowCallstack(GetCurrentThread());
-  }
-
- private:
-  virtual void OnOutput(LPCSTR s) {
-    if (_skip > 0) {
-      --_skip;
-      return;
-    }
-    const size_t n = strlen(s);
-    if (_f && *_f) _f->write(s, n);
-    auto r = ::fwrite(s, 1, n, stderr);
-    (void)r;
-  }
-
-  virtual void OnSymInit(LPCSTR, DWORD, LPCSTR) {
-  }
-  virtual void OnLoadModule(LPCSTR, LPCSTR, DWORD64, DWORD, DWORD, LPCSTR, LPCSTR, ULONGLONG) {
-  }
-  virtual void OnDbgHelpErr(LPCSTR, DWORD, DWORD64) {
-  }
-
- private:
-  fs::file* _f;  // file
-  int _skip;
-};
-
-#else
-
 class StackTrace {
  public:
   StackTrace(uint32 n) : _f(0), _buf((char*)::malloc(n)), _size(n), _s(4096), _exe(os::exepath()) {
@@ -856,22 +799,10 @@ void on_signal(int sig) {
   mod().except_handler->handle_signal(sig);
 }
 
-#ifdef _WIN32
-LONG WINAPI on_except(PEXCEPTION_POINTERS p) {
-  return mod().except_handler->handle_exception((void*)p);
-}
-#endif
-
 ExceptHandler::ExceptHandler() {
   _stack_trace = co::_make_static<StackTrace>(FLG_demangle_buffer_size);
   _old_handlers[SIGINT] = os::signal(SIGINT, on_signal);
   _old_handlers[SIGTERM] = os::signal(SIGTERM, on_signal);
-#ifdef _WIN32
-  _old_handlers[SIGABRT] = os::signal(SIGABRT, on_signal);
-  // Signal handler for SIGSEGV and SIGFPE installed in main thread does
-  // not work for other threads. Use SetUnhandledExceptionFilter instead.
-  SetUnhandledExceptionFilter(on_except);
-#else
   const int x = SA_RESTART;  // | SA_ONSTACK;
   _old_handlers[SIGQUIT] = os::signal(SIGQUIT, on_signal);
   _old_handlers[SIGABRT] = os::signal(SIGABRT, on_signal, x);
@@ -895,10 +826,6 @@ ExceptHandler::~ExceptHandler() {
   os::signal(SIGILL, SIG_DFL);
 #endif
 }
-
-#if defined(_WIN32) && !defined(SIGQUIT)
-#define SIGQUIT SIGTERM
-#endif
 
 void ExceptHandler::handle_signal(int sig) {
   auto& m = mod();
@@ -955,103 +882,9 @@ void ExceptHandler::handle_signal(int sig) {
   raise(sig);
 }
 
-#ifdef _WIN32
-int ExceptHandler::handle_exception(void* e) {
-  auto& m = mod();
-  const char* err = NULL;
-  auto p = (PEXCEPTION_POINTERS)e;
-
-  switch (p->ExceptionRecord->ExceptionCode) {
-    case EXCEPTION_ACCESS_VIOLATION:
-      err = "Error: EXCEPTION_ACCESS_VIOLATION";
-      break;
-    case EXCEPTION_ARRAY_BOUNDS_EXCEEDED:
-      err = "Error: EXCEPTION_ARRAY_BOUNDS_EXCEEDED";
-      break;
-    case EXCEPTION_DATATYPE_MISALIGNMENT:
-      err = "Error: EXCEPTION_DATATYPE_MISALIGNMENT";
-      break;
-    case EXCEPTION_FLT_DENORMAL_OPERAND:
-      err = "Error: EXCEPTION_FLT_DENORMAL_OPERAND";
-      break;
-    case EXCEPTION_FLT_DIVIDE_BY_ZERO:
-      err = "Error: EXCEPTION_FLT_DIVIDE_BY_ZERO";
-      break;
-    case EXCEPTION_FLT_INVALID_OPERATION:
-      err = "Error: EXCEPTION_FLT_INVALID_OPERATION";
-      break;
-    case EXCEPTION_FLT_OVERFLOW:
-      err = "Error: EXCEPTION_FLT_OVERFLOW";
-      break;
-    case EXCEPTION_FLT_STACK_CHECK:
-      err = "Error: EXCEPTION_FLT_STACK_CHECK";
-      break;
-    case EXCEPTION_FLT_UNDERFLOW:
-      err = "Error: EXCEPTION_FLT_UNDERFLOW";
-      break;
-    case EXCEPTION_ILLEGAL_INSTRUCTION:
-      err = "Error: EXCEPTION_ILLEGAL_INSTRUCTION";
-      break;
-    case EXCEPTION_IN_PAGE_ERROR:
-      err = "Error: EXCEPTION_IN_PAGE_ERROR";
-      break;
-    case EXCEPTION_INT_DIVIDE_BY_ZERO:
-      err = "Error: EXCEPTION_INT_DIVIDE_BY_ZERO";
-      break;
-    case EXCEPTION_NONCONTINUABLE_EXCEPTION:
-      err = "Error: EXCEPTION_NONCONTINUABLE_EXCEPTION";
-      break;
-    case EXCEPTION_PRIV_INSTRUCTION:
-      err = "Error: EXCEPTION_PRIV_INSTRUCTION";
-      break;
-    case EXCEPTION_STACK_OVERFLOW:
-      err = "Error: EXCEPTION_STACK_OVERFLOW";
-      break;
-    case 0xE06D7363:  // STATUS_CPP_EH_EXCEPTION, std::runtime_error()
-      err = "Error: STATUS_CPP_EH_EXCEPTION";
-      break;
-    case 0xE0434f4D:  // STATUS_CLR_EXCEPTION, VC++ Runtime error
-      err = "Error: STATUS_CLR_EXCEPTION";
-      break;
-    case 0xCFFFFFFF:  // STATUS_APPLICATION_HANG
-      err = "Error: STATUS_APPLICATION_HANG";
-      break;
-    case STATUS_INVALID_HANDLE:
-      err = "Error: STATUS_INVALID_HANDLE";
-      break;
-    case STATUS_STACK_BUFFER_OVERRUN:
-      err = "Error: STATUS_STACK_BUFFER_OVERRUN";
-      break;
-    default:
-      err = "Unexpected error: ";
-      break;
-  }
-
-  m.logger->stop();
-  auto& f = m.log_file->open(NULL, fatal);
-  auto& s = *m.stream;
-  s.clear();
-  s << 'F' << m.log_time->get() << "] " << err;
-  if (err[0] == 'U') s << (void*)(size_t)p->ExceptionRecord->ExceptionCode;
-  s << '\n';
-  if (f) f.write(s);
-  log2stderr(s.data(), s.size());
-
-  if (_stack_trace) _stack_trace->dump_stack(&f, 6);
-  if (f) {
-    f.write('\n');
-    f.close();
-  }
-
-  ::exit(0);
-  return EXCEPTION_EXECUTE_HANDLER;
-}
-
-#else
 int ExceptHandler::handle_exception(void*) {
   return 0;
 }
-#endif  // _WIN32
 
 Mod::Mod() {
   exename = co::_make_static<fastring>(os::exename());
@@ -1124,9 +957,3 @@ void set_write_cb(const std::function<void(const char*, const void*, size_t)>& c
 
 }  // namespace log
 }  // namespace _xx
-
-#ifdef _WIN32
-LONG WINAPI _co_on_exception(PEXCEPTION_POINTERS p) {
-  return _xx::log::xx::on_except(p);
-}
-#endif

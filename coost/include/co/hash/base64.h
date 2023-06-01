@@ -3,8 +3,8 @@
 #include "../fastring.h"
 
 /**
- * base64 encode 
- * 
+ * base64 encode
+ *
  * @param s  a pointer to the data to be encoded.
  * @param n  size of the data.
  *
@@ -13,14 +13,14 @@
 __coapi fastring base64_encode(const void* s, size_t n);
 
 /**
- * base64 decode 
+ * base64 decode
  *   - This function will return an empty string in two cases:
- *     - Size of the input data is 0. 
- *     - The input data is not a valid base64-encoded string. 
- * 
+ *     - Size of the input data is 0.
+ *     - The input data is not a valid base64-encoded string.
+ *
  * @param s  a pointer to the data to be decoded.
  * @param n  size of the data.
- * 
+ *
  * @return   a decoded string on success, or an empty string on any error.
  */
 __coapi fastring base64_decode(const void* s, size_t n);

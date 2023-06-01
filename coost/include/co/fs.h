@@ -131,7 +131,7 @@ class __coapi file {
     void operator=(file&& x) = delete;
 
     explicit operator bool() const;
-    
+
     bool operator!() const {
         return !(bool)(*this);
     }

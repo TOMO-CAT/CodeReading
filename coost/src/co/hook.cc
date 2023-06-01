@@ -41,7 +41,7 @@ class HookCtx {
     bool is_non_blocking() const { return _s.nb; }
     bool is_blocking() const { return !this->is_non_blocking(); }
 
-    // for blocking sockets, we modify them to non_blocking, 
+    // for blocking sockets, we modify them to non_blocking,
     // and set nb_mark to 1.
     void set_nb_mark() { _s.nb_mark = 1; }
     bool has_nb_mark() const { return _s.nb_mark; }
@@ -260,7 +260,7 @@ int _hook(pipe2)(int fds[2], int flags) {
 }
 
 #ifndef F_DUPFD_CLOEXEC
-#define F_DUPFD_CLOEXEC F_DUPFD 
+#define F_DUPFD_CLOEXEC F_DUPFD
 #endif
 
 int _hook(fcntl)(int fd, int cmd, ... /* arg */) {
@@ -292,7 +292,7 @@ int _hook(fcntl)(int fd, int cmd, ... /* arg */) {
 }
 
 // A dirty hack to get the variadic arguments of ioctl.
-//   - As we do not know how many args does ioctl have, we use 8 pointers, 
+//   - As we do not know how many args does ioctl have, we use 8 pointers,
 //     which should be enough, to cover all the variadic args.
 // TODO: better solution?
 #define VARG_8_GET(args) \
@@ -312,7 +312,7 @@ int _hook(ioctl)(int fd, co::ioctl_param<ioctl_fp_t>::type request, ...) {
     auto ctx = gHook().get_hook_ctx(fd);
     va_list args;
     va_start(args, request);
-   
+
     if (request == FIONBIO) {
         int* arg = va_arg(args, int*);
         va_end(args);
@@ -321,7 +321,7 @@ int _hook(ioctl)(int fd, co::ioctl_param<ioctl_fp_t>::type request, ...) {
         r = __sys_api(ioctl)(fd, request, arg);
         if (r != -1 && ctx && ctx->is_sock_or_pipe()) {
             ctx->set_non_blocking(nb);
-            HOOKLOG << "hook ioctl FIONBIO, fd: " << fd << ", non_block: " << nb; 
+            HOOKLOG << "hook ioctl FIONBIO, fd: " << fd << ", non_block: " << nb;
         }
 
     } else {

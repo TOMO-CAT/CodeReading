@@ -33,8 +33,8 @@ extern "C" {
 #endif
 
 /**
- * context for a coroutine 
- *   - It always points to the stack bottom, see more details on: 
+ * context for a coroutine
+ *   - It always points to the stack bottom, see more details on:
  *     https://tboox.org/cn/2016/10/28/coroutine-context/
  */
 typedef void* tb_context_t;
