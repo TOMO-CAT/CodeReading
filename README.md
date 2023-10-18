@@ -29,3 +29,15 @@
 > link: <https://github.com/fsaintjacques/disruptor-->
 >
 > commit id: 03b5f3340b5b106ffb9f5199c55dca9242f9c589
+
+## Muduo
+
+> link: <https://github.com/chenshuo/muduo.git>
+>
+> commit id: f29ca0ebc2f3b0ab61c1be08482a5524334c3d6f
+
+## LevelDB
+
+> link: <https://github.com/google/leveldb>
+>
+> commit id: 068d5ee1a3ac40dabd00d211d5013af44be55bea

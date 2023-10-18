@@ -1,0 +1,8 @@
+*.swp
+bazel-*
+compile_commands.json
+.cache/
+build/
+logs/
+build64_release
+blade-bin

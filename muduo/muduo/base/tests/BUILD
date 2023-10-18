@@ -1,0 +1,296 @@
+cc_test(
+    name='LogStream_test',
+    srcs=[
+        'LogStream_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    exclusive=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'AsyncLogging_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'Atomic_unittest.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'BlockingQueue_bench.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'BlockingQueue_bench2.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'BlockingQueue_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'BoundedBlockingQueue_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'Date_unittest.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'Exception_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'FileUtil_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'Fork_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'GzipFile_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'LogFile_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'LogStream_bench.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'Logging_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'Mutex_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'ProcessInfo_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'SingletonThreadLocal_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'Singleton_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'ThreadLocalSingleton_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'ThreadLocal_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'ThreadPool_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'Thread_bench.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'Thread_test.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'TimeZone_unittest.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'TimeZone_util.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)
+
+cc_binary(
+    name="tests",
+    srcs=[
+        'Timestamp_unittest.cc',
+    ],
+    deps=[
+        '//muduo/base:base',
+    ],
+    dynamic_link=True,
+)

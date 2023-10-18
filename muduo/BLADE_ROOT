@@ -1,0 +1,63 @@
+global_config(
+    # 运行每个测试的超时时间, 单位秒
+    test_timeout=10,
+    # 默认可见性
+    default_visibility=['PUBLIC'],
+)
+
+cc_config(
+    # 从 thirdparty/blade-build/blade.conf 复制的
+    cxx_warnings=[
+    ],
+    cxxflags=[
+        '-std=c++17',
+    ],
+    optimize='-O2',
+    extra_incs=[
+    ],
+    # extra_linkflags=[
+    # ],
+    # 增加运行时动态库链接, 方便直接使用 build64_release/tools/topic/topic, 否则会报动态库不存在
+    # 但是这样会给所有 BLADE 的编译目标都加上这个选项
+    linkflags=[
+    ],
+)
+
+cc_library_config(
+    generate_dynamic=True,
+    # generate_static=False,
+    # 预构建 prebuilt 的库所在的子目录的模式
+    prebuilt_libpath_pattern='lib',
+)
+
+cc_test_config(
+    # 开启 gperftools 的 HEAPCHECK, 空表示不开启
+    heap_check='',
+    # 测试程序是否默认动态链接, 可以减少磁盘开销
+    dynamic_link=True,
+    # tcmalloc 库, blade deps 格式
+    gperftools_libs=['#tcmalloc'],
+    # tcmalloc_debug 库, blade deps 格式
+    gperftools_debug_libs=['#tcmalloc_debug'],
+    # gtest 的库, blade deps 格式
+    gtest_libs=[
+        '//thirdparty/gtest:gtest',
+        '#pthread'
+    ],
+    gtest_main_libs=['//thirdparty/gtest:gtest_main'],
+    pprof_path='/usr/local/bin/pprof',
+)
+
+proto_library_config(
+    # protoc 编译器的路径
+    protoc='protoc',
+    # protobuf 库的路径
+    protobuf_libs=[
+        '#protobuf'
+    ],
+)
+
+thrift_library_config(
+    thrift='thrift',
+    thrift_libs=['#thrift'],
+)
