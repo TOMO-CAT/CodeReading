@@ -47,12 +47,15 @@ void threadFunc() {
 }
 
 int main() {
+  // 构造 Test 单例
   muduo::Singleton<Test>::instance().setName("only one");
   muduo::Thread t1(threadFunc);
   t1.start();
   t1.join();
   printf("tid=%d, %p name=%s\n", muduo::CurrentThread::tid(), &muduo::Singleton<Test>::instance(),
          muduo::Singleton<Test>::instance().name().c_str());
+
+  // 构造 TestNoDestroy 单例, 它不会调用析构函数, 因此会出现内存泄漏
   muduo::Singleton<TestNoDestroy>::instance();
   printf("with valgrind, you should see %zd-byte memory leak.\n", sizeof(TestNoDestroy));
 }
