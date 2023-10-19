@@ -8,27 +8,24 @@
 //
 // This is a public header file, it must only include public header files.
 
-#ifndef MUDUO_NET_EVENTLOOPTHREAD_H
-#define MUDUO_NET_EVENTLOOPTHREAD_H
+#pragma once
+
+#include <string>
 
 #include "muduo/base/Condition.h"
 #include "muduo/base/Mutex.h"
 #include "muduo/base/Thread.h"
 
-namespace muduo
-{
-namespace net
-{
+namespace muduo {
+namespace net {
 
 class EventLoop;
 
-class EventLoopThread : noncopyable
-{
+class EventLoopThread : noncopyable {
  public:
   typedef std::function<void(EventLoop*)> ThreadInitCallback;
 
-  EventLoopThread(const ThreadInitCallback& cb = ThreadInitCallback(),
-                  const string& name = string());
+  EventLoopThread(const ThreadInitCallback& cb = ThreadInitCallback(), const string& name = string());
   ~EventLoopThread();
   EventLoop* startLoop();
 
@@ -45,6 +42,3 @@ class EventLoopThread : noncopyable
 
 }  // namespace net
 }  // namespace muduo
-
-#endif  // MUDUO_NET_EVENTLOOPTHREAD_H
-
