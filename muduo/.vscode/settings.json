@@ -43,9 +43,11 @@
         "**/.clang-format"
     ],
     "cSpell.words": [
+        "Arghh",
         "chenshuo",
         "devel",
         "epoll",
+        "Ghemawat",
         "gperftools",
         "hdrs",
         "libgd",
@@ -61,7 +63,8 @@
         "protorpc",
         "Shuo",
         "srcs",
-        "tcmalloc"
+        "tcmalloc",
+        "Varda"
     ],
     // 使用 python 格式化 BUILD 文件并屏蔽报错
     // 使用 autopep8 而不用 flake8

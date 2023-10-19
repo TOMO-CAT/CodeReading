@@ -20,7 +20,8 @@ namespace detail {
 template <typename T>
 class AtomicIntegerT : noncopyable {
  public:
-  AtomicIntegerT() : value_(0) {}
+  AtomicIntegerT() : value_(0) {
+  }
 
   // uncomment if you need copying and assignment
   //
@@ -44,17 +45,29 @@ class AtomicIntegerT : noncopyable {
     return __sync_fetch_and_add(&value_, x);
   }
 
-  T addAndGet(T x) { return getAndAdd(x) + x; }
+  T addAndGet(T x) {
+    return getAndAdd(x) + x;
+  }
 
-  T incrementAndGet() { return addAndGet(1); }
+  T incrementAndGet() {
+    return addAndGet(1);
+  }
 
-  T decrementAndGet() { return addAndGet(-1); }
+  T decrementAndGet() {
+    return addAndGet(-1);
+  }
 
-  void add(T x) { getAndAdd(x); }
+  void add(T x) {
+    getAndAdd(x);
+  }
 
-  void increment() { incrementAndGet(); }
+  void increment() {
+    incrementAndGet();
+  }
 
-  void decrement() { decrementAndGet(); }
+  void decrement() {
+    decrementAndGet();
+  }
 
   T getAndSet(T newValue) {
     // in gcc >= 4.7: __atomic_exchange_n(&value_, newValue, __ATOMIC_SEQ_CST)

@@ -16,7 +16,9 @@ namespace muduo {
 
 using std::string;
 
-inline void memZero(void* p, size_t n) { memset(p, 0, n); }
+inline void memZero(void* p, size_t n) {
+  memset(p, 0, n);
+}
 
 // Taken from google-protobuf stubs/common.h
 //
@@ -95,9 +97,10 @@ inline To implicit_cast(From const& f) {
 //    if (dynamic_cast<Subclass2>(foo)) HandleASubclass2Object(foo);
 // You should design the code some other way not to need this.
 
-template <typename To, typename From>  // use like this: down_cast<T*>(foo);
-inline To down_cast(From* f)           // so we only accept pointers
-{
+// use like this: down_cast<T*>(foo);
+// so we only accept pointers
+template <typename To, typename From>
+inline To down_cast(From* f) {
   // Ensures that To is a sub-type of From *.  This test is here only
   // for compile-time type checking, and has no overhead in an
   // optimized build at run-time, as it will be optimized away

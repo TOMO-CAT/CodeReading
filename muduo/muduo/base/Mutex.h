@@ -90,6 +90,10 @@ __END_DECLS
 
 namespace muduo {
 
+/**
+ * @brief 封装互斥锁
+ *
+ */
 // Use as data member of a class, eg.
 //
 // class Foo
@@ -162,8 +166,9 @@ class CAPABILITY("mutex") MutexLock : noncopyable {
     holder_ = CurrentThread::tid();
   }
 
+ private:
   pthread_mutex_t mutex_;
-  pid_t holder_;
+  pid_t holder_;  // 持有互斥锁的线程 ID
 };
 
 // Use as a stack variable, eg.
