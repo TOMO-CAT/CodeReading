@@ -20,10 +20,10 @@
 
 #include <inttypes.h>
 
-using namespace muduo;
-using namespace muduo::detail;
+using muduo::Fmt;
+using muduo::LogStream;
+using muduo::detail::FixedBuffer;
 
-// TODO: better itoa.
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wtautological-compare"
 #else
@@ -40,6 +40,7 @@ static_assert(sizeof(digits) == 20, "wrong number of digits");
 const char digitsHex[] = "0123456789ABCDEF";
 static_assert(sizeof digitsHex == 17, "wrong number of digitsHex");
 
+// 使用 Matthew Wilson. 方法实现整数到字符串的快速转换
 // Efficient Integer to String Conversions, by Matthew Wilson.
 template <typename T>
 size_t convert(char buf[], T value) {
@@ -61,6 +62,7 @@ size_t convert(char buf[], T value) {
   return p - buf;
 }
 
+// 将数字转换成 16 进制的字符串
 size_t convertHex(char buf[], uintptr_t value) {
   uintptr_t i = value;
   char* p = buf;
@@ -82,6 +84,9 @@ template class FixedBuffer<kLargeBuffer>;
 
 }  // namespace detail
 
+using muduo::detail::convert;
+using muduo::detail::convertHex;
+
 /*
  Format a number with 5 characters, including SI units.
  [0,     999]
@@ -96,7 +101,7 @@ std::string formatSI(int64_t s) {
   double n = static_cast<double>(s);
   char buf[64];
   if (s < 1000)
-    snprintf(buf, sizeof(buf), "%" PRId64, s);
+    snprintf(buf, sizeof(buf), "  %" PRId64, s);
   else if (s < 9995)
     snprintf(buf, sizeof(buf), "%.2fk", n / 1e3);
   else if (s < 99950)

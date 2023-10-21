@@ -53,7 +53,9 @@
         "libgd",
         "libprotobuf",
         "libprotoc",
+        "ltrace",
         "MCHECK",
+        "memcpy",
         "Muduo",
         "mysleep",
         "pcond",
@@ -64,7 +66,9 @@
         "Shuo",
         "srcs",
         "tcmalloc",
-        "Varda"
+        "Varda",
+        "Wtautological",
+        "Wtype"
     ],
     // 使用 python 格式化 BUILD 文件并屏蔽报错
     // 使用 autopep8 而不用 flake8

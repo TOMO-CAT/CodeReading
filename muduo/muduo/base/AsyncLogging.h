@@ -47,7 +47,7 @@ class AsyncLogging : noncopyable {
  private:
   void threadFunc();
 
-  typedef muduo::detail::FixedBuffer<muduo::detail::kLargeBuffer> Buffer;
+  typedef muduo::detail::FixedBuffer<muduo::detail::kLargeBuffer> Buffer;  // 4M
   typedef std::vector<std::unique_ptr<Buffer>> BufferVector;
   typedef BufferVector::value_type BufferPtr;
 
@@ -59,9 +59,9 @@ class AsyncLogging : noncopyable {
   muduo::CountDownLatch latch_;
   muduo::MutexLock mutex_;
   muduo::Condition cond_ GUARDED_BY(mutex_);
-  BufferPtr currentBuffer_ GUARDED_BY(mutex_);
-  BufferPtr nextBuffer_ GUARDED_BY(mutex_);
-  BufferVector buffers_ GUARDED_BY(mutex_);
+  BufferPtr currentBuffer_ GUARDED_BY(mutex_);  // 当前缓冲 4M
+  BufferPtr nextBuffer_ GUARDED_BY(mutex_);     // 预备缓冲 4M
+  BufferVector buffers_ GUARDED_BY(mutex_);     // 待写入文件的已填满的 buffer 列表
 };
 
 }  // namespace muduo

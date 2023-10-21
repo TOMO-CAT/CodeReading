@@ -50,13 +50,18 @@ int readFile(StringArg filename, int maxSize, String* content, int64_t* fileSize
   return file.readToString(maxSize, content, fileSize, modifyTime, createTime);
 }
 
-// not thread safe
+/**
+ * @brief 封装文件指针, 可以将 char* 指向的数据写入文件, 同时有一个 64 KB 的缓冲区
+ *
+ * @note 非线程安全
+ */
 class AppendFile : noncopyable {
  public:
   explicit AppendFile(StringArg filename);
 
   ~AppendFile();
 
+ public:
   void append(const char* logline, size_t len);
 
   void flush();
@@ -68,8 +73,9 @@ class AppendFile : noncopyable {
  private:
   size_t write(const char* logline, size_t len);
 
-  FILE* fp_;
-  char buffer_[64 * 1024];
+ private:
+  FILE* fp_;                // 文件指针
+  char buffer_[64 * 1024];  // 64 KB
   off_t writtenBytes_;
 };
 

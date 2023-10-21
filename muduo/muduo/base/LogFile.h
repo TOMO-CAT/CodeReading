@@ -3,32 +3,27 @@
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef MUDUO_BASE_LOGFILE_H
-#define MUDUO_BASE_LOGFILE_H
+#pragma once
+
+#include <memory>
+#include <string>
 
 #include "muduo/base/Mutex.h"
 #include "muduo/base/Types.h"
 
-#include <memory>
+namespace muduo {
 
-namespace muduo
-{
-
-namespace FileUtil
-{
+namespace FileUtil {
 class AppendFile;
 }
 
-class LogFile : noncopyable
-{
+class LogFile : noncopyable {
  public:
-  LogFile(const string& basename,
-          off_t rollSize,
-          bool threadSafe = true,
-          int flushInterval = 3,
+  LogFile(const string& basename, off_t rollSize, bool threadSafe = true, int flushInterval = 3,
           int checkEveryN = 1024);
   ~LogFile();
 
+ public:
   void append(const char* logline, int len);
   void flush();
   bool rollFile();
@@ -51,8 +46,7 @@ class LogFile : noncopyable
   time_t lastFlush_;
   std::unique_ptr<FileUtil::AppendFile> file_;
 
-  const static int kRollPerSeconds_ = 60*60*24;
+  static const int kRollPerSeconds_ = 60 * 60 * 24;
 };
 
 }  // namespace muduo
-#endif  // MUDUO_BASE_LOGFILE_H

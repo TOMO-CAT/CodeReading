@@ -22,7 +22,7 @@ const int kSmallBuffer = 4000;
 const int kLargeBuffer = 4000 * 1000;
 
 /**
- * @brief 替代 iostream 以实现高性能
+ * @brief 固定大小的字符缓冲区, 大小由模板参数 SIZE 指定
  *
  * @tparam SIZE
  */
@@ -37,10 +37,17 @@ class FixedBuffer : noncopyable {
     setCookie(cookieEnd);
   }
 
+ public:
+  /**
+   * @brief 将 buf 写入到缓冲区 cur 指向的位置, 并且调整 cur_ 位置指向最新的 buf header
+   *
+   * @note cookie 可以保证每条内存消息中的日志信息都带有 cookie, 其值为某个函数的地址, 这样可以在 coredump
+   * 文件中通过查找 cookie 值找到所有尚未来得及写入磁盘的消息
+   */
   void append(const char* /*restrict*/ buf, size_t len) {
     // FIXME: append partially
     if (implicit_cast<size_t>(avail()) > len) {
-      memcpy(cur_, buf, len);
+      ::memcpy(cur_, buf, len);
       cur_ += len;
     }
   }
@@ -56,29 +63,53 @@ class FixedBuffer : noncopyable {
   char* current() {
     return cur_;
   }
+
+  /**
+   * @brief 剩余的缓冲区大小
+   *
+   * @return int
+   */
   int avail() const {
     return static_cast<int>(end() - cur_);
   }
+
+  /**
+   * @brief 调整 cur_ 指针位置 (这是为了做什么?)
+   *
+   * @param len
+   */
   void add(size_t len) {
     cur_ += len;
   }
 
+  /**
+   * @brief 清空缓冲区
+   *
+   */
   void reset() {
     cur_ = data_;
   }
+
+  /**
+   * @brief 将缓冲区数据置零
+   *
+   */
   void bzero() {
     memZero(data_, sizeof data_);
   }
 
   // for used by GDB
   const char* debugString();
+
   void setCookie(void (*cookie)()) {
     cookie_ = cookie;
   }
+
   // for used by unit test
   string toString() const {
     return string(data_, length());
   }
+
   StringPiece toStringPiece() const {
     return StringPiece(data_, length());
   }
@@ -92,12 +123,19 @@ class FixedBuffer : noncopyable {
   static void cookieEnd();
 
   void (*cookie_)();
+
+ private:
   char data_[SIZE];
   char* cur_;
 };
 
 }  // namespace detail
 
+/**
+ * @brief 替代 iostream 以实现高性能
+ *
+ * @tparam SIZE
+ */
 class LogStream : noncopyable {
   typedef LogStream self;
 
