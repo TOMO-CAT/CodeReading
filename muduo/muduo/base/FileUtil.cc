@@ -23,6 +23,7 @@ FileUtil::AppendFile::AppendFile(StringArg filename)
     : fp_(::fopen(filename.c_str(), "ae")),  // 'e' for O_CLOEXEC
       writtenBytes_(0) {
   assert(fp_);
+  // 将 fd_ 缓冲区设置为本地的 buffer_, 这样调用 write 方法时才会借助缓冲区并在适当的时候写入文件
   ::setbuffer(fp_, buffer_, sizeof buffer_);
 }
 

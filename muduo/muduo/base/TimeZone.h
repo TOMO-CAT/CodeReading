@@ -3,44 +3,43 @@
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef MUDUO_BASE_TIMEZONE_H
-#define MUDUO_BASE_TIMEZONE_H
+#pragma once
 
-#include "muduo/base/copyable.h"
-#include "muduo/base/Types.h"
-#include <memory>
 #include <time.h>
 
-namespace muduo
-{
+#include <memory>
+#include <string>
+
+#include "muduo/base/Types.h"
+#include "muduo/base/copyable.h"
+
+namespace muduo {
 
 // Local time in unspecified timezone.
 // A minute is always 60 seconds, no leap seconds.
-struct DateTime
-{
-  DateTime() {}
+struct DateTime {
+  DateTime() {
+  }
   explicit DateTime(const struct tm&);
   DateTime(int _year, int _month, int _day, int _hour, int _minute, int _second)
-      : year(_year), month(_month), day(_day), hour(_hour), minute(_minute), second(_second)
-  {
+      : year(_year), month(_month), day(_day), hour(_hour), minute(_minute), second(_second) {
   }
 
   // "2011-12-31 12:34:56"
   string toIsoString() const;
 
-  int year = 0;     // [1900, 2500]
-  int month = 0;    // [1, 12]
-  int day = 0;      // [1, 31]
-  int hour = 0;     // [0, 23]
-  int minute = 0;   // [0, 59]
-  int second = 0;   // [0, 59]
+  int year = 0;    // [1900, 2500]
+  int month = 0;   // [1, 12]
+  int day = 0;     // [1, 31]
+  int hour = 0;    // [0, 23]
+  int minute = 0;  // [0, 59]
+  int second = 0;  // [0, 59]
 };
 
 // TimeZone for 1970~2100
-class TimeZone : public muduo::copyable
-{
+class TimeZone : public muduo::copyable {
  public:
-  TimeZone() = default;  // an invalid timezone
+  TimeZone() = default;                         // an invalid timezone
   TimeZone(int eastOfUtc, const char* tzname);  // a fixed timezone
 
   static TimeZone UTC();
@@ -49,8 +48,7 @@ class TimeZone : public muduo::copyable
 
   // default copy ctor/assignment/dtor are Okay.
 
-  bool valid() const
-  {
+  bool valid() const {
     // 'explicit operator bool() const' in C++11
     return static_cast<bool>(data_);
   }
@@ -74,5 +72,3 @@ class TimeZone : public muduo::copyable
 };
 
 }  // namespace muduo
-
-#endif  // MUDUO_BASE_TIMEZONE_H

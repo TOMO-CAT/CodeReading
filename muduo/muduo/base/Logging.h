@@ -3,22 +3,18 @@
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef MUDUO_BASE_LOGGING_H
-#define MUDUO_BASE_LOGGING_H
+#pragma once
 
 #include "muduo/base/LogStream.h"
 #include "muduo/base/Timestamp.h"
 
-namespace muduo
-{
+namespace muduo {
 
 class TimeZone;
 
-class Logger
-{
+class Logger {
  public:
-  enum LogLevel
-  {
+  enum LogLevel {
     TRACE,
     DEBUG,
     INFO,
@@ -29,28 +25,25 @@ class Logger
   };
 
   // compile time calculation of basename of source file
-  class SourceFile
-  {
+  /**
+   * @brief 处理传入的文件路径, 用于解析 __FILE__ 中的文件名
+   *
+   * @note 利用 gcc 内置函数避免运行时 strchar 开销
+   */
+  class SourceFile {
    public:
-    template<int N>
-    SourceFile(const char (&arr)[N])
-      : data_(arr),
-        size_(N-1)
-    {
-      const char* slash = strrchr(data_, '/'); // builtin function
-      if (slash)
-      {
+    template <int N>
+    SourceFile(const char (&arr)[N]) : data_(arr), size_(N - 1) {
+      const char* slash = strrchr(data_, '/');  // builtin function
+      if (slash) {
         data_ = slash + 1;
         size_ -= static_cast<int>(data_ - arr);
       }
     }
 
-    explicit SourceFile(const char* filename)
-      : data_(filename)
-    {
+    explicit SourceFile(const char* filename) : data_(filename) {
       const char* slash = strrchr(filename, '/');
-      if (slash)
-      {
+      if (slash) {
         data_ = slash + 1;
       }
       size_ = static_cast<int>(strlen(data_));
@@ -60,48 +53,55 @@ class Logger
     int size_;
   };
 
+ public:
   Logger(SourceFile file, int line);
   Logger(SourceFile file, int line, LogLevel level);
   Logger(SourceFile file, int line, LogLevel level, const char* func);
   Logger(SourceFile file, int line, bool toAbort);
   ~Logger();
 
-  LogStream& stream() { return impl_.stream_; }
+ public:
+  LogStream& stream() {
+    return impl_.stream_;
+  }
 
+ public:
+  // 日志级别
   static LogLevel logLevel();
   static void setLogLevel(LogLevel level);
 
+  // 输出函数和刷新缓冲区函数
   typedef void (*OutputFunc)(const char* msg, int len);
   typedef void (*FlushFunc)();
   static void setOutput(OutputFunc);
   static void setFlush(FlushFunc);
+
+  // 时区
   static void setTimeZone(const TimeZone& tz);
 
  private:
+  // 内部实现类
+  class Impl {
+   public:
+    typedef Logger::LogLevel LogLevel;
+    Impl(LogLevel level, int old_errno, const SourceFile& file, int line);
+    void formatTime();
+    void finish();
 
-class Impl
-{
- public:
-  typedef Logger::LogLevel LogLevel;
-  Impl(LogLevel level, int old_errno, const SourceFile& file, int line);
-  void formatTime();
-  void finish();
-
-  Timestamp time_;
-  LogStream stream_;
-  LogLevel level_;
-  int line_;
-  SourceFile basename_;
-};
+    Timestamp time_;
+    LogStream stream_;
+    LogLevel level_;
+    int line_;
+    SourceFile basename_;
+  };
 
   Impl impl_;
-
 };
 
+// 日志级别
 extern Logger::LogLevel g_logLevel;
 
-inline Logger::LogLevel Logger::logLevel()
-{
+inline Logger::LogLevel Logger::logLevel() {
   return g_logLevel;
 }
 
@@ -121,12 +121,14 @@ inline Logger::LogLevel Logger::logLevel()
 //   else
 //     logWarnStream << "Bad news";
 //
-#define LOG_TRACE if (muduo::Logger::logLevel() <= muduo::Logger::TRACE) \
+#define LOG_TRACE                                        \
+  if (muduo::Logger::logLevel() <= muduo::Logger::TRACE) \
   muduo::Logger(__FILE__, __LINE__, muduo::Logger::TRACE, __func__).stream()
-#define LOG_DEBUG if (muduo::Logger::logLevel() <= muduo::Logger::DEBUG) \
+#define LOG_DEBUG                                        \
+  if (muduo::Logger::logLevel() <= muduo::Logger::DEBUG) \
   muduo::Logger(__FILE__, __LINE__, muduo::Logger::DEBUG, __func__).stream()
-#define LOG_INFO if (muduo::Logger::logLevel() <= muduo::Logger::INFO) \
-  muduo::Logger(__FILE__, __LINE__).stream()
+#define LOG_INFO \
+  if (muduo::Logger::logLevel() <= muduo::Logger::INFO) muduo::Logger(__FILE__, __LINE__).stream()
 #define LOG_WARN muduo::Logger(__FILE__, __LINE__, muduo::Logger::WARN).stream()
 #define LOG_ERROR muduo::Logger(__FILE__, __LINE__, muduo::Logger::ERROR).stream()
 #define LOG_FATAL muduo::Logger(__FILE__, __LINE__, muduo::Logger::FATAL).stream()
@@ -140,20 +142,15 @@ const char* strerror_tl(int savedErrno);
 // Check that the input is non NULL.  This very useful in constructor
 // initializer lists.
 
-#define CHECK_NOTNULL(val) \
-  ::muduo::CheckNotNull(__FILE__, __LINE__, "'" #val "' Must be non NULL", (val))
+#define CHECK_NOTNULL(val) ::muduo::CheckNotNull(__FILE__, __LINE__, "'" #val "' Must be non NULL", (val))
 
 // A small helper for CHECK_NOTNULL().
 template <typename T>
-T* CheckNotNull(Logger::SourceFile file, int line, const char *names, T* ptr)
-{
-  if (ptr == NULL)
-  {
-   Logger(file, line, Logger::FATAL).stream() << names;
+T* CheckNotNull(Logger::SourceFile file, int line, const char* names, T* ptr) {
+  if (ptr == NULL) {
+    Logger(file, line, Logger::FATAL).stream() << names;
   }
   return ptr;
 }
 
 }  // namespace muduo
-
-#endif  // MUDUO_BASE_LOGGING_H

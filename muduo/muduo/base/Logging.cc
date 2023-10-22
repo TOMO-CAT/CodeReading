@@ -5,18 +5,17 @@
 
 #include "muduo/base/Logging.h"
 
-#include "muduo/base/CurrentThread.h"
-#include "muduo/base/Timestamp.h"
-#include "muduo/base/TimeZone.h"
-
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
 
 #include <sstream>
 
-namespace muduo
-{
+#include "muduo/base/CurrentThread.h"
+#include "muduo/base/TimeZone.h"
+#include "muduo/base/Timestamp.h"
+
+namespace muduo {
 
 /*
 class LoggerImpl
@@ -39,13 +38,11 @@ __thread char t_errnobuf[512];
 __thread char t_time[64];
 __thread time_t t_lastSecond;
 
-const char* strerror_tl(int savedErrno)
-{
+const char* strerror_tl(int savedErrno) {
   return strerror_r(savedErrno, t_errnobuf, sizeof t_errnobuf);
 }
 
-Logger::LogLevel initLogLevel()
-{
+Logger::LogLevel initLogLevel() {
   if (::getenv("MUDUO_LOG_TRACE"))
     return Logger::TRACE;
   else if (::getenv("MUDUO_LOG_DEBUG"))
@@ -56,24 +53,14 @@ Logger::LogLevel initLogLevel()
 
 Logger::LogLevel g_logLevel = initLogLevel();
 
-const char* LogLevelName[Logger::NUM_LOG_LEVELS] =
-{
-  "TRACE ",
-  "DEBUG ",
-  "INFO  ",
-  "WARN  ",
-  "ERROR ",
-  "FATAL ",
+const char* LogLevelName[Logger::NUM_LOG_LEVELS] = {
+    "TRACE ", "DEBUG ", "INFO  ", "WARN  ", "ERROR ", "FATAL ",
 };
 
 // helper class for known string length at compile time
-class T
-{
+class T {
  public:
-  T(const char* str, unsigned len)
-    :str_(str),
-     len_(len)
-  {
+  T(const char* str, unsigned len) : str_(str), len_(len) {
     assert(strlen(str) == len_);
   }
 
@@ -81,27 +68,24 @@ class T
   const unsigned len_;
 };
 
-inline LogStream& operator<<(LogStream& s, T v)
-{
+inline LogStream& operator<<(LogStream& s, T v) {
   s.append(v.str_, v.len_);
   return s;
 }
 
-inline LogStream& operator<<(LogStream& s, const Logger::SourceFile& v)
-{
+inline LogStream& operator<<(LogStream& s, const Logger::SourceFile& v) {
   s.append(v.data_, v.size_);
   return s;
 }
 
-void defaultOutput(const char* msg, int len)
-{
+// 默认情况下将数据写入到 stdout 中
+void defaultOutput(const char* msg, int len) {
   size_t n = fwrite(msg, 1, len, stdout);
-  //FIXME check n
   (void)n;
 }
 
-void defaultFlush()
-{
+// 默认情况下将数据刷新到 stdout
+void defaultFlush() {
   fflush(stdout);
 }
 
@@ -114,113 +98,88 @@ TimeZone g_logTimeZone;
 using namespace muduo;
 
 Logger::Impl::Impl(LogLevel level, int savedErrno, const SourceFile& file, int line)
-  : time_(Timestamp::now()),
-    stream_(),
-    level_(level),
-    line_(line),
-    basename_(file)
-{
+    : time_(Timestamp::now()), stream_(), level_(level), line_(line), basename_(file) {
   formatTime();
   CurrentThread::tid();
   stream_ << T(CurrentThread::tidString(), CurrentThread::tidStringLength());
   stream_ << T(LogLevelName[level], 6);
-  if (savedErrno != 0)
-  {
+  if (savedErrno != 0) {
     stream_ << strerror_tl(savedErrno) << " (errno=" << savedErrno << ") ";
   }
 }
 
-void Logger::Impl::formatTime()
-{
+// 将时间戳格式化为字符串保存在 t_time 中, 同时写入到 stream_ 中
+void Logger::Impl::formatTime() {
   int64_t microSecondsSinceEpoch = time_.microSecondsSinceEpoch();
   time_t seconds = static_cast<time_t>(microSecondsSinceEpoch / Timestamp::kMicroSecondsPerSecond);
   int microseconds = static_cast<int>(microSecondsSinceEpoch % Timestamp::kMicroSecondsPerSecond);
-  if (seconds != t_lastSecond)
-  {
+  if (seconds != t_lastSecond) {
     t_lastSecond = seconds;
     struct DateTime dt;
-    if (g_logTimeZone.valid())
-    {
+    if (g_logTimeZone.valid()) {
       dt = g_logTimeZone.toLocalTime(seconds);
-    }
-    else
-    {
+    } else {
       dt = TimeZone::toUtcTime(seconds);
     }
 
-    int len = snprintf(t_time, sizeof(t_time), "%4d%02d%02d %02d:%02d:%02d",
-        dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second);
-    assert(len == 17); (void)len;
+    int len = snprintf(t_time, sizeof(t_time), "%4d%02d%02d %02d:%02d:%02d", dt.year, dt.month, dt.day, dt.hour,
+                       dt.minute, dt.second);
+    assert(len == 17);
+    (void)len;
   }
 
-  if (g_logTimeZone.valid())
-  {
+  if (g_logTimeZone.valid()) {
     Fmt us(".%06d ", microseconds);
     assert(us.length() == 8);
     stream_ << T(t_time, 17) << T(us.data(), 8);
-  }
-  else
-  {
+  } else {
     Fmt us(".%06dZ ", microseconds);
     assert(us.length() == 9);
     stream_ << T(t_time, 17) << T(us.data(), 9);
   }
 }
 
-void Logger::Impl::finish()
-{
+// 每行日志的末尾写入源文件名和行号
+void Logger::Impl::finish() {
   stream_ << " - " << basename_ << ':' << line_ << '\n';
 }
 
-Logger::Logger(SourceFile file, int line)
-  : impl_(INFO, 0, file, line)
-{
+Logger::Logger(SourceFile file, int line) : impl_(INFO, 0, file, line) {
 }
 
-Logger::Logger(SourceFile file, int line, LogLevel level, const char* func)
-  : impl_(level, 0, file, line)
-{
+Logger::Logger(SourceFile file, int line, LogLevel level, const char* func) : impl_(level, 0, file, line) {
   impl_.stream_ << func << ' ';
 }
 
-Logger::Logger(SourceFile file, int line, LogLevel level)
-  : impl_(level, 0, file, line)
-{
+Logger::Logger(SourceFile file, int line, LogLevel level) : impl_(level, 0, file, line) {
 }
 
-Logger::Logger(SourceFile file, int line, bool toAbort)
-  : impl_(toAbort?FATAL:ERROR, errno, file, line)
-{
+Logger::Logger(SourceFile file, int line, bool toAbort) : impl_(toAbort ? FATAL : ERROR, errno, file, line) {
 }
 
-Logger::~Logger()
-{
+// 在析构函数中实现日志打印
+Logger::~Logger() {
   impl_.finish();
   const LogStream::Buffer& buf(stream().buffer());
   g_output(buf.data(), buf.length());
-  if (impl_.level_ == FATAL)
-  {
+  if (impl_.level_ == FATAL) {
     g_flush();
     abort();
   }
 }
 
-void Logger::setLogLevel(Logger::LogLevel level)
-{
+void Logger::setLogLevel(Logger::LogLevel level) {
   g_logLevel = level;
 }
 
-void Logger::setOutput(OutputFunc out)
-{
+void Logger::setOutput(OutputFunc out) {
   g_output = out;
 }
 
-void Logger::setFlush(FlushFunc flush)
-{
+void Logger::setFlush(FlushFunc flush) {
   g_flush = flush;
 }
 
-void Logger::setTimeZone(const TimeZone& tz)
-{
+void Logger::setTimeZone(const TimeZone& tz) {
   g_logTimeZone = tz;
 }

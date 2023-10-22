@@ -62,8 +62,17 @@ class AppendFile : noncopyable {
   ~AppendFile();
 
  public:
+  /**
+   * @brief 向 buffer_ 中添加日志
+   *
+   * @param logline
+   * @param len
+   */
   void append(const char* logline, size_t len);
-
+  /**
+   * @brief 将 buffer_ 写入到文件中
+   *
+   */
   void flush();
 
   off_t writtenBytes() const {

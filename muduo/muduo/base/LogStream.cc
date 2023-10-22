@@ -294,7 +294,10 @@ template <typename T>
 Fmt::Fmt(const char* fmt, T val) {
   static_assert(std::is_arithmetic<T>::value == true, "Must be arithmetic type");
 
+#pragma GCC diagnostic push  // 禁用特定警告
+#pragma GCC diagnostic ignored "-Wformat-nonliteral"
   length_ = snprintf(buf_, sizeof buf_, fmt, val);
+#pragma GCC diagnostic pop  // 恢复警告
   assert(static_cast<size_t>(length_) < sizeof buf_);
 }
 

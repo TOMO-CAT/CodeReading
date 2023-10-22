@@ -8,6 +8,7 @@ global_config(
 cc_config(
     # 从 thirdparty/blade-build/blade.conf 复制的
     cxx_warnings=[
+        '-Wno-error=format-nonliteral',
     ],
     cxxflags=[
         '-std=c++17',
