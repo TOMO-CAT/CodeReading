@@ -68,6 +68,52 @@ muduo 日志库采用两个方法来应对这一点：
 
 ![logger-double-buffering](./image/logger-double-buffering.png)
 
+实际 muduo 日志库前端和后端交互涉及到四个缓冲区 A、B、C 和 D，前端和后端各持有两个。另外前端和后端各有一个缓冲区数组，初始时都是空的。
+
+#### 4.1 前端写日志频率不高
+
+第一种情况是前端写日志频率不高，后端 3 秒超时后将 “当前缓冲区 current-buffer ”写入文件：
+
+![logger-situation1](./image/logger-situation1.png)
+
+在第 2.9 秒时 current-buffer 使用了 80%，在第三秒时后端线程被超时唤醒，将 current-buffer 塞入到 buffers_，再将 new-buffer-1 移用为 current-buffer。随后第 3+ 秒交换前后端 buffers。
+
+离开临界区后，后端线程会将 A 写入到磁盘文件，Write Done 后再把 new-buffer-1 重新填上。
+
+#### 4.2 写满当前缓冲
+
+第二种情况是在 3 秒超时之前已经写满了当前缓冲，于是唤醒后端线程开始写入文件：
+
+![logger-situation2](./image/logger-situation2.png)
+
+在第 1.5 秒时 current-buffer（A） 使用了 80%，第 1.8 秒时 current-buffer（A） 被写满加入到前端 buffers 中，并将 next-buffer（B） 移用为当前缓冲，然后唤醒后端线程开始写入。
+
+当后端线程唤醒之后（1.8+秒），先将 current-buffer（B） 送入 buffers，再将 new-buffer-1（C）移用为 current-buffer，交换前后端 buffers，最后用 new-buffer-2（D）替换 next-buffer，即保证前端有两个空缓冲可用。
+
+离开临界区后，将 buffers 中的 A 和 B 写入到磁盘文件，写完之后重新填充 new-buffer-1 和 new-buffer-2，完成一次循环。
+
+#### 4.3 前端短时间密集写入日志
+
+第三种情况是前端在短时间内密集写入日志消息，用完了两个缓冲，并重新分配了一个新的缓冲。
+
+![logger-situation3](./image/logger-situation3.png)
+
+在 1.8 秒时缓冲 A 已经写完，缓冲 B 也接近写满，并且已经调用 `notify()` 唤醒了后端线程，但是出于种种原因，后端线程并没有立即开始工作，到了 1.9 秒缓冲 B 也已经写完，前端不得不分配缓冲 E。
+
+到了 1.8+ 秒后端线程终于开始运行，将 A、B、E 加入到 buffers，将 C、D 两块缓冲交给前端，并开始将 A、B、E 依次写入文件。一段时间后完成写入操作，用 A、B 重新填充两块空缓冲。
+
+> 注意到这里有意用 A 和 B 填充 new-buffer-1 和 new-buffer-2，而释放了缓冲 E，这是**因为使用 A 和 B 不会造成 page fault**。
+
+#### 4.4 文件写入速度较慢
+
+第四种情况是文件写入速度较慢，导致前端耗尽了两个缓冲并分配了新缓冲。
+
+![logger-situation4](./image/logger-situation4.png)
+
+前 1.8+ 秒的场景和前面第二种情况相同，前端写满了一个缓冲唤醒后端线程准备写入文件。之后后端线程花费了大半秒才将数据写完。这时候前端又用完了两个缓冲（C 和 D）并分配了一个新的缓冲（E），这期间前端的 `notify()` 已经丢失（即后端线程一直在运行种，notify 无效）。
+
+当后端线程 Write Done 后发现 buffers 不为空，立即进入下一循环，即替换前端两个缓冲，并一次性写入 C、D、E。
+
 ## 性能优化
 
 * 时间戳字符串中的日期和时间两部分是缓存的，一秒之内的多条日志只需要重新格式化微秒部分
