@@ -3,64 +3,59 @@
 //
 // Author: Shuo Chen (chenshuo at chenshuo dot com)
 
-#ifndef MUDUO_BASE_THREADLOCALSINGLETON_H
-#define MUDUO_BASE_THREADLOCALSINGLETON_H
-
-#include "muduo/base/noncopyable.h"
+#pragma once
 
 #include <assert.h>
 #include <pthread.h>
 
-namespace muduo
-{
+#include "muduo/base/noncopyable.h"
 
-template<typename T>
-class ThreadLocalSingleton : noncopyable
-{
+namespace muduo {
+
+/**
+ * @brief 每个线程一个 Singleton
+ *
+ * @tparam T
+ */
+template <typename T>
+class ThreadLocalSingleton : noncopyable {
  public:
   ThreadLocalSingleton() = delete;
   ~ThreadLocalSingleton() = delete;
 
-  static T& instance()
-  {
-    if (!t_value_)
-    {
+  static T& instance() {
+    if (!t_value_) {
       t_value_ = new T();
       deleter_.set(t_value_);
     }
     return *t_value_;
   }
 
-  static T* pointer()
-  {
+  static T* pointer() {
     return t_value_;
   }
 
  private:
-  static void destructor(void* obj)
-  {
+  static void destructor(void* obj) {
     assert(obj == t_value_);
     typedef char T_must_be_complete_type[sizeof(T) == 0 ? -1 : 1];
-    T_must_be_complete_type dummy; (void) dummy;
+    T_must_be_complete_type dummy;
+    (void)dummy;
     delete t_value_;
     t_value_ = 0;
   }
 
-  class Deleter
-  {
+  class Deleter {
    public:
-    Deleter()
-    {
+    Deleter() {
       pthread_key_create(&pkey_, &ThreadLocalSingleton::destructor);
     }
 
-    ~Deleter()
-    {
+    ~Deleter() {
       pthread_key_delete(pkey_);
     }
 
-    void set(T* newObj)
-    {
+    void set(T* newObj) {
       assert(pthread_getspecific(pkey_) == NULL);
       pthread_setspecific(pkey_, newObj);
     }
@@ -72,11 +67,10 @@ class ThreadLocalSingleton : noncopyable
   static Deleter deleter_;
 };
 
-template<typename T>
+template <typename T>
 __thread T* ThreadLocalSingleton<T>::t_value_ = 0;
 
-template<typename T>
+template <typename T>
 typename ThreadLocalSingleton<T>::Deleter ThreadLocalSingleton<T>::deleter_;
 
 }  // namespace muduo
-#endif  // MUDUO_BASE_THREADLOCALSINGLETON_H

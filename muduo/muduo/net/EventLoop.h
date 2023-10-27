@@ -8,25 +8,22 @@
 //
 // This is a public header file, it must only include public header files.
 
-#ifndef MUDUO_NET_EVENTLOOP_H
-#define MUDUO_NET_EVENTLOOP_H
+#pragma once
 
 #include <atomic>
 #include <functional>
+#include <memory>
 #include <vector>
 
-#include <boost/any.hpp>
-
-#include "muduo/base/Mutex.h"
+#include "boost/any.hpp"
 #include "muduo/base/CurrentThread.h"
+#include "muduo/base/Mutex.h"
 #include "muduo/base/Timestamp.h"
 #include "muduo/net/Callbacks.h"
 #include "muduo/net/TimerId.h"
 
-namespace muduo
-{
-namespace net
-{
+namespace muduo {
+namespace net {
 
 class Channel;
 class Poller;
@@ -36,14 +33,14 @@ class TimerQueue;
 /// Reactor, at most one per thread.
 ///
 /// This is an interface class, so don't expose too much details.
-class EventLoop : noncopyable
-{
+class EventLoop : noncopyable {
  public:
   typedef std::function<void()> Functor;
 
   EventLoop();
   ~EventLoop();  // force out-line dtor, for std::unique_ptr members.
 
+ public:
   ///
   /// Loops forever.
   ///
@@ -60,9 +57,13 @@ class EventLoop : noncopyable
   ///
   /// Time when poll returns, usually means data arrival.
   ///
-  Timestamp pollReturnTime() const { return pollReturnTime_; }
+  Timestamp pollReturnTime() const {
+    return pollReturnTime_;
+  }
 
-  int64_t iteration() const { return iteration_; }
+  int64_t iteration() const {
+    return iteration_;
+  }
 
   /// Runs callback immediately in the loop thread.
   /// It wakes up the loop, and run the cb.
@@ -106,25 +107,30 @@ class EventLoop : noncopyable
   bool hasChannel(Channel* channel);
 
   // pid_t threadId() const { return threadId_; }
-  void assertInLoopThread()
-  {
-    if (!isInLoopThread())
-    {
+  void assertInLoopThread() {
+    if (!isInLoopThread()) {
       abortNotInLoopThread();
     }
   }
-  bool isInLoopThread() const { return threadId_ == CurrentThread::tid(); }
+  bool isInLoopThread() const {
+    return threadId_ == CurrentThread::tid();
+  }
   // bool callingPendingFunctors() const { return callingPendingFunctors_; }
-  bool eventHandling() const { return eventHandling_; }
+  bool eventHandling() const {
+    return eventHandling_;
+  }
 
-  void setContext(const boost::any& context)
-  { context_ = context; }
+  void setContext(const boost::any& context) {
+    context_ = context;
+  }
 
-  const boost::any& getContext() const
-  { return context_; }
+  const boost::any& getContext() const {
+    return context_;
+  }
 
-  boost::any* getMutableContext()
-  { return &context_; }
+  boost::any* getMutableContext() {
+    return &context_;
+  }
 
   static EventLoop* getEventLoopOfCurrentThread();
 
@@ -133,13 +139,13 @@ class EventLoop : noncopyable
   void handleRead();  // waked up
   void doPendingFunctors();
 
-  void printActiveChannels() const; // DEBUG
+  void printActiveChannels() const;  // DEBUG
 
   typedef std::vector<Channel*> ChannelList;
 
   bool looping_; /* atomic */
   std::atomic<bool> quit_;
-  bool eventHandling_; /* atomic */
+  bool eventHandling_;          /* atomic */
   bool callingPendingFunctors_; /* atomic */
   int64_t iteration_;
   const pid_t threadId_;
@@ -162,5 +168,3 @@ class EventLoop : noncopyable
 
 }  // namespace net
 }  // namespace muduo
-
-#endif  // MUDUO_NET_EVENTLOOP_H

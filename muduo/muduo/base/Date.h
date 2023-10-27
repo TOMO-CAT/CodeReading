@@ -37,7 +37,8 @@ class Date : public muduo::copyable {
   ///
   /// Constucts an invalid Date.
   ///
-  Date() : julianDayNumber_(0) {}
+  Date() : julianDayNumber_(0) {
+  }
 
   ///
   /// Constucts a yyyy-mm-dd Date.
@@ -48,7 +49,8 @@ class Date : public muduo::copyable {
   ///
   /// Constucts a Date from Julian Day Number.
   ///
-  explicit Date(int julianDayNum) : julianDayNumber_(julianDayNum) {}
+  explicit Date(int julianDayNum) : julianDayNumber_(julianDayNum) {
+  }
 
   ///
   /// Constucts a Date from struct tm
@@ -57,9 +59,13 @@ class Date : public muduo::copyable {
 
   // default copy/assignment/dtor are Okay
 
-  void swap(Date& that) { std::swap(julianDayNumber_, that.julianDayNumber_); }
+  void swap(Date& that) {
+    std::swap(julianDayNumber_, that.julianDayNumber_);
+  }
 
-  bool valid() const { return julianDayNumber_ > 0; }
+  bool valid() const {
+    return julianDayNumber_ > 0;
+  }
 
   ///
   /// Converts to yyyy-mm-dd format.
@@ -68,16 +74,26 @@ class Date : public muduo::copyable {
 
   struct YearMonthDay yearMonthDay() const;
 
-  int year() const { return yearMonthDay().year; }
+  int year() const {
+    return yearMonthDay().year;
+  }
 
-  int month() const { return yearMonthDay().month; }
+  int month() const {
+    return yearMonthDay().month;
+  }
 
-  int day() const { return yearMonthDay().day; }
+  int day() const {
+    return yearMonthDay().day;
+  }
 
   // [0, 1, ..., 6] => [Sunday, Monday, ..., Saturday ]
-  int weekDay() const { return (julianDayNumber_ + 1) % kDaysPerWeek; }
+  int weekDay() const {
+    return (julianDayNumber_ + 1) % kDaysPerWeek;
+  }
 
-  int julianDayNumber() const { return julianDayNumber_; }
+  int julianDayNumber() const {
+    return julianDayNumber_;
+  }
 
  private:
   int julianDayNumber_;

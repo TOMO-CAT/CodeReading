@@ -47,6 +47,8 @@
         "chenshuo",
         "devel",
         "epoll",
+        "Eventfd",
+        "evtfd",
         "Ghemawat",
         "glog",
         "gperftools",
@@ -182,4 +184,5 @@
     "autopep8.args": [
         "--max-line-length=180"
     ],
+    "autoAddSpace.enable": false,
 }
