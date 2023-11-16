@@ -1,0 +1,20 @@
+cc_library(
+    name='include',
+    hdrs=[
+        'Container.h',
+        'ContainerHeader.h',
+        'Core.h',
+        'Data.h',
+        'Element.h',
+        'Header.h',
+        'MsgPack.h',
+        'MsgPackSocket.h',
+        'netLink.h',
+        'Number.h',
+        'Primitive.h',
+        'Socket.h',
+        'StreamManager.h',
+        'Utf8.h',
+    ],
+    visibility=['PUBLIC']
+)

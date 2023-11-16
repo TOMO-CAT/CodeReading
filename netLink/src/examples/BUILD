@@ -1,0 +1,10 @@
+cc_binary(
+    name='tcp',
+    srcs=[
+        'tcp.cpp',
+    ],
+    deps=[
+        '//src:src',
+        '//include:include',
+    ],
+)

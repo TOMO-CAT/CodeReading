@@ -1,0 +1,15 @@
+cc_library(
+    name='src',
+    hdrs=[
+    ],
+    srcs=[
+        'MsgPack.cpp',
+        'Socket.cpp',
+        'SocketManager.cpp',
+        'Utf8.cpp',
+    ],
+    deps=[
+        '//include:include',
+    ],
+    visibility=['PUBLIC']
+)

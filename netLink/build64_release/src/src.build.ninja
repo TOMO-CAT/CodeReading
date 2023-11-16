@@ -1,0 +1,16 @@
+#Fingerprint=ed452a0ff3e0f39807308d54a4de392e
+
+build build64_release/src/src.objs/MsgPack.cpp.o: cxx src/MsgPack.cpp
+
+build build64_release/src/src.objs/Socket.cpp.o: cxx src/Socket.cpp
+
+build build64_release/src/src.objs/SocketManager.cpp.o: cxx src/SocketManager.cpp
+
+build build64_release/src/src.objs/Utf8.cpp.o: cxx src/Utf8.cpp
+
+build build64_release/src/src.incchk.result: ccincchk build64_release/src/src.incchk | build64_release/src/src.objs/MsgPack.cpp.o build64_release/src/src.objs/Socket.cpp.o build64_release/src/src.objs/SocketManager.cpp.o build64_release/src/src.objs/Utf8.cpp.o
+
+build build64_release/src/libsrc.a: ar build64_release/src/src.objs/MsgPack.cpp.o build64_release/src/src.objs/Socket.cpp.o build64_release/src/src.objs/SocketManager.cpp.o build64_release/src/src.objs/Utf8.cpp.o || build64_release/src/src.incchk.result
+
+build build64_release/src/src.__outputs__: phony build64_release/src/libsrc.a build64_release/src/src.incchk.result
+

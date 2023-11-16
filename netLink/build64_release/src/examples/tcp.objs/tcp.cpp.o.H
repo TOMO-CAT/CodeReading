@@ -1,0 +1,13 @@
+. include/../include/netLink.h
+.. include/../include/MsgPackSocket.h
+... include/../include/Socket.h
+.... include/../include/Core.h
+..... include/../include/MsgPack.h
+...... include/../include/Primitive.h
+....... include/../include/Element.h
+...... include/../include/Data.h
+....... include/../include/Header.h
+...... include/../include/Number.h
+...... include/../include/Container.h
+....... include/../include/ContainerHeader.h
+...... include/../include/StreamManager.h

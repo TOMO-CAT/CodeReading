@@ -1,0 +1,21 @@
+{
+    "direct_targets": [
+        "src/examples:tcp"
+    ], 
+    "start_time": 1700114713.566014, 
+    "exit_code": 0, 
+    "build_targets": [
+        "src:src", 
+        "include:include", 
+        "src/examples:tcp"
+    ], 
+    "command_targets": [
+        "src/examples:tcp"
+    ], 
+    "end_time": 1700114713.674731, 
+    "loaded_targets": [
+        "src:src", 
+        "include:include", 
+        "src/examples:tcp"
+    ]
+}

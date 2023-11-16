@@ -1,0 +1,12 @@
+{
+    "cSpell.words": [
+        "DWINVER",
+        "MSVC",
+        "Pareja",
+        "streambuf"
+    ],
+    "editor.formatOnSave": true,
+    "cSpell.enableFiletypes": [
+        "!python"
+    ]
+}

@@ -1,0 +1,10 @@
+#Fingerprint=1feb61d6d5ec77e5f6639f1da09c9fc7
+
+build build64_release/src/examples/tcp.objs/tcp.cpp.o: cxx src/examples/tcp.cpp
+
+build build64_release/src/examples/tcp.incchk.result: ccincchk build64_release/src/examples/tcp.incchk | build64_release/src/examples/tcp.objs/tcp.cpp.o
+
+build build64_release/src/examples/tcp: link build64_release/src/examples/tcp.objs/tcp.cpp.o build64_release/scm.cc.o build64_release/src/libsrc.a || build64_release/include/include.incchk.result build64_release/src/examples/tcp.incchk.result build64_release/scm.cc.o
+
+build build64_release/src/examples/tcp.__outputs__: phony build64_release/src/examples/tcp build64_release/src/examples/tcp.incchk.result
+

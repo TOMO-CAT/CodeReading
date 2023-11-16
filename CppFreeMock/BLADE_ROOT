@@ -25,13 +25,13 @@ cc_config(
 cc_test_config(
     # 开启 gperftools 的 HEAPCHECK, 空表示不开启
     heap_check='',
-    # 测试程序是否默认动态链接, 可以减少磁盘开销
+    # 测试程序是否默认动态链接，可以减少磁盘开销
     dynamic_link=True,
-    # tcmalloc 库, blade deps 格式
+    # tcmalloc 库，blade deps 格式
     gperftools_libs=['#tcmalloc'],
-    # tcmalloc_debug 库, blade deps 格式
+    # tcmalloc_debug 库，blade deps 格式
     gperftools_debug_libs=['#tcmalloc_debug'],
-    # gtest 的库, blade deps 格式
+    # gtest 的库，blade deps 格式
     gtest_libs=[
         '//thirdparty/gtest-1.8.0:gtest',
         '#pthread'

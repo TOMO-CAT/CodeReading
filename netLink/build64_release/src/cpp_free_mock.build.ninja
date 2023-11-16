@@ -1,0 +1,16 @@
+#Fingerprint=1d0b0ec50e04be67aff61259ab948c9e
+
+build build64_release/src/cpp_free_mock.objs/MsgPack.cpp.o: cxx src/MsgPack.cpp
+
+build build64_release/src/cpp_free_mock.objs/Socket.cpp.o: cxx src/Socket.cpp
+
+build build64_release/src/cpp_free_mock.objs/SocketManager.cpp.o: cxx src/SocketManager.cpp
+
+build build64_release/src/cpp_free_mock.objs/Utf8.cpp.o: cxx src/Utf8.cpp
+
+build build64_release/src/cpp_free_mock.incchk.result: ccincchk build64_release/src/cpp_free_mock.incchk | build64_release/src/cpp_free_mock.objs/MsgPack.cpp.o build64_release/src/cpp_free_mock.objs/Socket.cpp.o build64_release/src/cpp_free_mock.objs/SocketManager.cpp.o build64_release/src/cpp_free_mock.objs/Utf8.cpp.o
+
+build build64_release/src/libcpp_free_mock.a: ar build64_release/src/cpp_free_mock.objs/MsgPack.cpp.o build64_release/src/cpp_free_mock.objs/Socket.cpp.o build64_release/src/cpp_free_mock.objs/SocketManager.cpp.o build64_release/src/cpp_free_mock.objs/Utf8.cpp.o || build64_release/src/cpp_free_mock.incchk.result
+
+build build64_release/src/cpp_free_mock.__outputs__: phony build64_release/src/cpp_free_mock.incchk.result build64_release/src/libcpp_free_mock.a
+
