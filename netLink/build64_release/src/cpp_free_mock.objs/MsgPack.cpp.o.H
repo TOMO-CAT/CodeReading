@@ -1,9 +1,0 @@
-. include/MsgPack.h
-.. include/Primitive.h
-... include/Element.h
-.. include/Data.h
-... include/Header.h
-.. include/Number.h
-.. include/Container.h
-... include/ContainerHeader.h
-.. include/StreamManager.h

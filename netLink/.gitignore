@@ -1,2 +1,4 @@
 out/
 Makefile
+.cache/
+build64_release/
