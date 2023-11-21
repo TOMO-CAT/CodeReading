@@ -2,8 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_UTIL_ARENA_H_
-#define STORAGE_LEVELDB_UTIL_ARENA_H_
+#pragma once
 
 #include <atomic>
 #include <cassert>
@@ -67,5 +66,3 @@ inline char* Arena::Allocate(size_t bytes) {
 }
 
 }  // namespace leveldb
-
-#endif  // STORAGE_LEVELDB_UTIL_ARENA_H_
