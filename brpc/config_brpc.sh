@@ -95,6 +95,8 @@ if [ $GCC_VERSION -gt 0 ] && [ $GCC_VERSION -lt 40800 ]; then
     exit 1
 fi
 
+# 必须配置 include 和 lib 路径
+# eg: sh config_brpc.sh --headers=/usr/include --libs=/usr/lib
 if [ -z "$HDRS_IN" ] || [ -z "$LIBS_IN" ]; then
     >&2 $ECHO "config_brpc: --headers=HDRPATHS --libs=LIBPATHS must be specified"
     exit 1

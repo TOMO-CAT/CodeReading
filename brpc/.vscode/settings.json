@@ -1,0 +1,13 @@
+{
+    "cSpell.words": [
+        "brpc",
+        "glog",
+        "leveldb",
+        "libgflags",
+        "libgtest",
+        "libleveldb",
+        "libprotobuf",
+        "libprotoc",
+        "perftools"
+    ]
+}
