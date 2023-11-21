@@ -2,8 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#ifndef BUTIL_CONTAINERS_STACK_CONTAINER_H_
-#define BUTIL_CONTAINERS_STACK_CONTAINER_H_
+#pragma once
 
 #include <string>
 #include <vector>
@@ -261,5 +260,3 @@ class StackVector : public StackContainer<
 };
 
 }  // namespace butil
-
-#endif  // BUTIL_CONTAINERS_STACK_CONTAINER_H_

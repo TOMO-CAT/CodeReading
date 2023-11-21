@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
         "brpc",
+        "butil",
         "glog",
         "leveldb",
         "libgflags",
