@@ -1,12 +1,5 @@
 # LevelDB
 
-## 依赖
-
-```bash
-git submodule init
-git submodule update
-```
-
 ## 编译
 
 ```bash
