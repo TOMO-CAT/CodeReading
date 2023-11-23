@@ -5,8 +5,7 @@
 // Log format information shared by reader and writer.
 // See ../doc/log_format.md for more detail.
 
-#ifndef STORAGE_LEVELDB_DB_LOG_FORMAT_H_
-#define STORAGE_LEVELDB_DB_LOG_FORMAT_H_
+#pragma once
 
 namespace leveldb {
 namespace log {
@@ -31,5 +30,3 @@ static const int kHeaderSize = 4 + 2 + 1;
 
 }  // namespace log
 }  // namespace leveldb
-
-#endif  // STORAGE_LEVELDB_DB_LOG_FORMAT_H_

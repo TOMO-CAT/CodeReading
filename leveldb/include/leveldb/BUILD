@@ -1,0 +1,25 @@
+cc_library(
+    name='leveldb',
+    hdrs=[
+        'c.h',
+        'cache.h',
+        'comparator.h',
+        'db.h',
+        'dumpfile.h',
+        'env.h',
+        'export.h',
+        'filter_policy.h',
+        'iterator.h',
+        'options.h',
+        'slice.h',
+        'status.h',
+        'table.h',
+        'table_builder.h',
+        'write_batch.h',
+    ],
+    srcs=[
+    ],
+    deps=[
+    ],
+    visibility=['PUBLIC'],
+)

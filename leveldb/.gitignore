@@ -6,3 +6,9 @@
 # Build directory.
 build/
 out/
+
+blade-bin/
+build64_release/
+build64_debug/
+.cache/
+compile_commands.json

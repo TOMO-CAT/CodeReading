@@ -1,0 +1,7 @@
+cc_config(
+    cxxflags=['-std=c++17'],
+    optimize='-O2',
+    extra_incs=[
+        'include',
+    ],
+)

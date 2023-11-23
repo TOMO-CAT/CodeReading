@@ -1,0 +1,800 @@
+[2023-11-23 14:01:48,863][INFO][blade.py:514] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:01:48,866][INFO][blade.py:526] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:01:48,866][DEBUG][blade.py:293] generate blade build file for [include/leveldb]
+[2023-11-23 14:01:48,866][DEBUG][blade.py:294] name: [leveldb]
+[2023-11-23 14:01:48,866][DEBUG][blade.py:321] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:01:48,866][DEBUG][blade.py:322] test_srcs = []
+[2023-11-23 14:01:48,866][DEBUG][blade.py:323] main_srcs = []
+[2023-11-23 14:01:48,866][DEBUG][blade.py:324] normal_srcs = []
+[2023-11-23 14:01:48,866][DEBUG][blade.py:325] proto_files = []
+[2023-11-23 14:01:48,866][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:01:48,867][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:01:48,867][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:01:48,868][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:01:48,868][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:01:48,868][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:01:48,868][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:01:48,869][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:01:48,869][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:01:48,870][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:01:48,870][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:01:48,871][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:01:48,871][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:01:48,871][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:01:48,871][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:01:48,872][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:01:48,872][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:01:48,872][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:01:48,872][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:01:48,873][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:01:48,873][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:01:48,873][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:01:48,873][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:01:48,874][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:01:48,874][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:01:48,874][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:01:48,874][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:01:48,874][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:01:48,875][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:01:48,875][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:01:48,875][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:01:48,875][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,875][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/slice.h]
+[2023-11-23 14:01:48,875][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,875][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/status.h]
+[2023-11-23 14:01:48,876][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,876][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/iterator.h]
+[2023-11-23 14:01:48,876][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,876][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/status.h]
+[2023-11-23 14:01:48,876][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,876][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,876][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,877][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,877][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/options.h]
+[2023-11-23 14:01:48,877][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/status.h]
+[2023-11-23 14:01:48,877][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/env.h]
+[2023-11-23 14:01:48,877][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,877][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/status.h]
+[2023-11-23 14:01:48,877][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,877][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,877][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/slice.h]
+[2023-11-23 14:01:48,877][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,878][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,878][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/iterator.h]
+[2023-11-23 14:01:48,878][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/options.h]
+[2023-11-23 14:01:48,878][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:01:48,878][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/slice.h]
+[2023-11-23 14:01:48,878][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/status.h]
+[2023-11-23 14:01:48,878][DEBUG][blade.py:238] deps: []
+[2023-11-23 14:01:48,878][DEBUG][blade.py:435] cc_library=
+cc_library(
+    name='leveldb',
+    hdrs=[
+        'c.h',
+        'cache.h',
+        'comparator.h',
+        'db.h',
+        'dumpfile.h',
+        'env.h',
+        'export.h',
+        'filter_policy.h',
+        'iterator.h',
+        'options.h',
+        'slice.h',
+        'status.h',
+        'table.h',
+        'table_builder.h',
+        'write_batch.h',
+    ],
+    srcs=[
+    ],
+    deps=[
+    ],
+    visibility=['PUBLIC'],
+)
+
+[2023-11-23 14:01:48,878][INFO][blade.py:535] generate blade build files for [include/leveldb/] done!
+[2023-11-23 14:19:11,619][INFO][blade.py:514] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:19:11,622][INFO][blade.py:526] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:19:11,622][DEBUG][blade.py:293] generate blade build file for [include/leveldb]
+[2023-11-23 14:19:11,622][DEBUG][blade.py:294] name: [leveldb]
+[2023-11-23 14:19:11,623][DEBUG][blade.py:321] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:19:11,623][DEBUG][blade.py:322] test_srcs = []
+[2023-11-23 14:19:11,623][DEBUG][blade.py:323] main_srcs = []
+[2023-11-23 14:19:11,623][DEBUG][blade.py:324] normal_srcs = []
+[2023-11-23 14:19:11,623][DEBUG][blade.py:325] proto_files = []
+[2023-11-23 14:19:11,623][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:19:11,623][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:19:11,623][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:19:11,623][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:19:11,623][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:19:11,623][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:19:11,623][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:19:11,624][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:19:11,624][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:19:11,624][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:19:11,624][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:19:11,624][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:19:11,624][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:19:11,624][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:19:11,624][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:19:11,624][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:19:11,624][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:19:11,624][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:19:11,624][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:19:11,625][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:19:11,625][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:19:11,625][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:19:11,625][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:19:11,625][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:19:11,625][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:19:11,625][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:19:11,625][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:19:11,625][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:19:11,625][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:19:11,625][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:19:11,625][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:19:11,625][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,625][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/slice.h]
+[2023-11-23 14:19:11,626][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,626][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/status.h]
+[2023-11-23 14:19:11,626][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,626][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/iterator.h]
+[2023-11-23 14:19:11,626][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,626][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/status.h]
+[2023-11-23 14:19:11,626][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,626][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,626][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,627][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,627][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/options.h]
+[2023-11-23 14:19:11,627][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/status.h]
+[2023-11-23 14:19:11,627][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/env.h]
+[2023-11-23 14:19:11,627][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,627][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/status.h]
+[2023-11-23 14:19:11,627][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,627][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,627][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/slice.h]
+[2023-11-23 14:19:11,628][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,628][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,628][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/iterator.h]
+[2023-11-23 14:19:11,628][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/options.h]
+[2023-11-23 14:19:11,628][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/export.h]
+[2023-11-23 14:19:11,628][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/slice.h]
+[2023-11-23 14:19:11,628][WARNING][blade.py:211] header folder [leveldb] don't exist, header file [leveldb/status.h]
+[2023-11-23 14:19:11,628][DEBUG][blade.py:238] deps: []
+[2023-11-23 14:19:11,628][DEBUG][blade.py:435] cc_library=
+cc_library(
+    name='leveldb',
+    hdrs=[
+        'c.h',
+        'cache.h',
+        'comparator.h',
+        'db.h',
+        'dumpfile.h',
+        'env.h',
+        'export.h',
+        'filter_policy.h',
+        'iterator.h',
+        'options.h',
+        'slice.h',
+        'status.h',
+        'table.h',
+        'table_builder.h',
+        'write_batch.h',
+    ],
+    srcs=[
+    ],
+    deps=[
+    ],
+    visibility=['PUBLIC'],
+)
+
+[2023-11-23 14:19:11,628][INFO][blade.py:535] generate blade build files for [include/leveldb/] done!
+[2023-11-23 14:23:13,065][INFO][blade.py:519] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:23:13,068][INFO][blade.py:531] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:23:13,068][DEBUG][blade.py:298] generate blade build file for [include/leveldb]
+[2023-11-23 14:23:13,068][DEBUG][blade.py:299] name: [leveldb]
+[2023-11-23 14:23:13,068][DEBUG][blade.py:326] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:23:13,068][DEBUG][blade.py:327] test_srcs = []
+[2023-11-23 14:23:13,068][DEBUG][blade.py:328] main_srcs = []
+[2023-11-23 14:23:13,068][DEBUG][blade.py:329] normal_srcs = []
+[2023-11-23 14:23:13,068][DEBUG][blade.py:330] proto_files = []
+[2023-11-23 14:23:13,069][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:23:13,069][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:23:13,069][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:23:13,069][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:23:13,069][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:23:13,069][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:23:13,069][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:23:13,069][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:23:13,069][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:23:13,069][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:23:13,070][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:23:13,071][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:23:13,071][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:23:13,071][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:23:13,071][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:23:13,071][INFO][blade.py:167] header_folder: [leveldb]
+[2023-11-23 14:23:27,033][INFO][blade.py:519] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:23:27,035][INFO][blade.py:531] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:23:27,035][DEBUG][blade.py:298] generate blade build file for [include/leveldb]
+[2023-11-23 14:23:27,035][DEBUG][blade.py:299] name: [leveldb]
+[2023-11-23 14:23:27,036][DEBUG][blade.py:326] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:23:27,036][DEBUG][blade.py:327] test_srcs = []
+[2023-11-23 14:23:27,036][DEBUG][blade.py:328] main_srcs = []
+[2023-11-23 14:23:27,036][DEBUG][blade.py:329] normal_srcs = []
+[2023-11-23 14:23:27,036][DEBUG][blade.py:330] proto_files = []
+[2023-11-23 14:23:27,036][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:23:27,036][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:23:27,036][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:23:27,036][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:23:27,036][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:23:27,036][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:23:27,036][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:23:27,037][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:23:27,037][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:23:27,037][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:23:27,037][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:23:27,037][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:23:27,037][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:23:27,037][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:23:27,037][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:23:27,037][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:23:27,037][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:23:27,038][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:23:27,038][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:23:27,038][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:23:27,038][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:23:27,038][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:23:27,038][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:23:27,038][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:23:27,039][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:23:27,039][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:23:27,039][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:23:27,039][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:23:27,039][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:23:27,039][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:23:27,039][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:23:27,039][INFO][blade.py:167] header_folder: [leveldb]
+[2023-11-23 14:23:50,611][INFO][blade.py:520] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:23:50,613][INFO][blade.py:532] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:23:50,613][DEBUG][blade.py:299] generate blade build file for [include/leveldb]
+[2023-11-23 14:23:50,613][DEBUG][blade.py:300] name: [leveldb]
+[2023-11-23 14:23:50,614][DEBUG][blade.py:327] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:23:50,614][DEBUG][blade.py:328] test_srcs = []
+[2023-11-23 14:23:50,614][DEBUG][blade.py:329] main_srcs = []
+[2023-11-23 14:23:50,614][DEBUG][blade.py:330] normal_srcs = []
+[2023-11-23 14:23:50,614][DEBUG][blade.py:331] proto_files = []
+[2023-11-23 14:23:50,614][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:23:50,614][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:23:50,614][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:23:50,614][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:23:50,614][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:23:50,614][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:23:50,614][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:23:50,615][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:23:50,616][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:23:50,616][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:23:50,616][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:23:50,616][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:23:50,616][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:23:50,616][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:23:50,616][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:23:50,616][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:23:50,616][INFO][blade.py:168] header_folder: [leveldb]
+[2023-11-23 14:23:56,963][INFO][blade.py:520] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:23:56,966][INFO][blade.py:532] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:23:56,966][DEBUG][blade.py:299] generate blade build file for [include/leveldb]
+[2023-11-23 14:23:56,966][DEBUG][blade.py:300] name: [leveldb]
+[2023-11-23 14:23:56,967][DEBUG][blade.py:327] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:23:56,967][DEBUG][blade.py:328] test_srcs = []
+[2023-11-23 14:23:56,967][DEBUG][blade.py:329] main_srcs = []
+[2023-11-23 14:23:56,967][DEBUG][blade.py:330] normal_srcs = []
+[2023-11-23 14:23:56,967][DEBUG][blade.py:331] proto_files = []
+[2023-11-23 14:23:56,967][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:23:56,967][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:23:56,967][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:23:56,967][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:23:56,967][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:23:56,967][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:23:56,967][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:23:56,968][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:23:56,968][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:23:56,968][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:23:56,968][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:23:56,968][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:23:56,968][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:23:56,968][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:23:56,968][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:23:56,968][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:23:56,968][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:23:56,968][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:23:56,968][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:23:56,969][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:23:56,969][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:23:56,969][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:23:56,969][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:23:56,969][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:23:56,969][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:23:56,969][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:23:56,969][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:23:56,969][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:23:56,969][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:23:56,969][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:23:56,969][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:23:56,969][INFO][blade.py:168] header_folder: [leveldb]
+[2023-11-23 14:24:04,016][INFO][blade.py:519] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:24:04,019][INFO][blade.py:531] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:24:04,019][DEBUG][blade.py:298] generate blade build file for [include/leveldb]
+[2023-11-23 14:24:04,019][DEBUG][blade.py:299] name: [leveldb]
+[2023-11-23 14:24:04,019][DEBUG][blade.py:326] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:24:04,019][DEBUG][blade.py:327] test_srcs = []
+[2023-11-23 14:24:04,019][DEBUG][blade.py:328] main_srcs = []
+[2023-11-23 14:24:04,019][DEBUG][blade.py:329] normal_srcs = []
+[2023-11-23 14:24:04,019][DEBUG][blade.py:330] proto_files = []
+[2023-11-23 14:24:04,019][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:24:04,020][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:24:04,020][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:24:04,020][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:24:04,020][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:24:04,020][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:24:04,020][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:24:04,020][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:24:04,020][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:24:04,021][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:24:04,022][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:24:04,022][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:24:04,022][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:24:04,022][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:24:04,022][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:24:04,022][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:24:04,022][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:24:04,022][ERROR][blade.py:167] header_folder: [leveldb]
+[2023-11-23 14:24:27,420][INFO][blade.py:520] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:24:27,423][INFO][blade.py:532] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:24:27,423][DEBUG][blade.py:299] generate blade build file for [include/leveldb]
+[2023-11-23 14:24:27,423][DEBUG][blade.py:300] name: [leveldb]
+[2023-11-23 14:24:27,423][DEBUG][blade.py:327] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:24:27,423][DEBUG][blade.py:328] test_srcs = []
+[2023-11-23 14:24:27,423][DEBUG][blade.py:329] main_srcs = []
+[2023-11-23 14:24:27,423][DEBUG][blade.py:330] normal_srcs = []
+[2023-11-23 14:24:27,423][DEBUG][blade.py:331] proto_files = []
+[2023-11-23 14:24:27,424][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:24:27,424][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:24:27,424][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:24:27,424][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:24:27,424][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:24:27,424][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:24:27,424][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:24:27,424][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:24:27,424][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:24:27,425][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:24:27,425][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:24:27,425][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:24:27,425][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:24:27,425][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:24:27,425][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:24:27,425][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:24:27,425][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:24:27,425][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:24:27,425][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:24:27,425][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:24:27,425][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:24:27,426][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:24:27,426][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:24:27,426][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:24:27,426][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:24:27,426][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:24:27,426][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:24:27,426][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:24:27,426][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:24:27,426][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:24:27,426][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:24:27,426][ERROR][blade.py:167] header_folder: [leveldb]
+[2023-11-23 14:24:27,426][ERROR][blade.py:168] folder_path: [include/leveldb]
+[2023-11-23 14:26:38,778][INFO][blade.py:522] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:26:38,781][INFO][blade.py:534] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:26:38,781][DEBUG][blade.py:301] generate blade build file for [include/leveldb]
+[2023-11-23 14:26:38,781][DEBUG][blade.py:302] name: [leveldb]
+[2023-11-23 14:26:38,781][DEBUG][blade.py:329] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:26:38,781][DEBUG][blade.py:330] test_srcs = []
+[2023-11-23 14:26:38,781][DEBUG][blade.py:331] main_srcs = []
+[2023-11-23 14:26:38,781][DEBUG][blade.py:332] normal_srcs = []
+[2023-11-23 14:26:38,781][DEBUG][blade.py:333] proto_files = []
+[2023-11-23 14:26:38,781][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:26:38,782][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:26:38,782][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:26:38,782][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:26:38,782][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:26:38,782][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:26:38,782][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:26:38,782][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:26:38,782][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:26:38,782][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:26:38,782][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:26:38,782][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:26:38,783][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:26:38,784][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:26:38,784][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:26:38,784][ERROR][blade.py:168] header_folder: [leveldb]
+[2023-11-23 14:26:38,784][ERROR][blade.py:169] folder_path: [include/leveldb]
+[2023-11-23 14:29:00,939][INFO][blade.py:523] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:29:00,941][INFO][blade.py:535] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:29:00,941][DEBUG][blade.py:302] generate blade build file for [include/leveldb]
+[2023-11-23 14:29:00,941][DEBUG][blade.py:303] name: [leveldb]
+[2023-11-23 14:29:00,942][DEBUG][blade.py:330] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:29:00,942][DEBUG][blade.py:331] test_srcs = []
+[2023-11-23 14:29:00,942][DEBUG][blade.py:332] main_srcs = []
+[2023-11-23 14:29:00,942][DEBUG][blade.py:333] normal_srcs = []
+[2023-11-23 14:29:00,942][DEBUG][blade.py:334] proto_files = []
+[2023-11-23 14:29:00,942][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:29:00,942][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:29:00,942][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:29:00,942][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:29:00,942][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:29:00,942][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:29:00,942][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:29:00,943][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:29:00,944][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:29:00,944][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:29:00,944][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:29:00,944][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:29:00,944][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:29:00,944][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:29:00,944][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:29:00,944][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:29:00,944][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:29:00,944][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:29:00,944][ERROR][blade.py:214] header_folder: [leveldb]
+[2023-11-23 14:29:00,944][ERROR][blade.py:215] folder_path: [include/leveldb]
+[2023-11-23 14:30:55,328][INFO][blade.py:521] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:30:55,330][INFO][blade.py:533] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:30:55,330][DEBUG][blade.py:300] generate blade build file for [include/leveldb]
+[2023-11-23 14:30:55,330][DEBUG][blade.py:301] name: [leveldb]
+[2023-11-23 14:30:55,331][DEBUG][blade.py:328] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:30:55,331][DEBUG][blade.py:329] test_srcs = []
+[2023-11-23 14:30:55,331][DEBUG][blade.py:330] main_srcs = []
+[2023-11-23 14:30:55,331][DEBUG][blade.py:331] normal_srcs = []
+[2023-11-23 14:30:55,331][DEBUG][blade.py:332] proto_files = []
+[2023-11-23 14:30:55,331][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:30:55,331][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:30:55,331][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:30:55,331][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:30:55,331][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:30:55,331][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:30:55,331][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:30:55,332][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:30:55,333][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:30:55,333][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:30:55,333][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:30:55,333][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:30:55,333][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:30:55,333][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:30:55,333][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:30:55,333][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:30:55,333][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:30:55,333][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:30:55,333][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:30:55,334][DEBUG][blade.py:245] deps: []
+[2023-11-23 14:30:55,334][DEBUG][blade.py:442] cc_library=
+cc_library(
+    name='leveldb',
+    hdrs=[
+        'c.h',
+        'cache.h',
+        'comparator.h',
+        'db.h',
+        'dumpfile.h',
+        'env.h',
+        'export.h',
+        'filter_policy.h',
+        'iterator.h',
+        'options.h',
+        'slice.h',
+        'status.h',
+        'table.h',
+        'table_builder.h',
+        'write_batch.h',
+    ],
+    srcs=[
+    ],
+    deps=[
+    ],
+    visibility=['PUBLIC'],
+)
+
+[2023-11-23 14:30:55,334][INFO][blade.py:542] generate blade build files for [include/leveldb/] done!
+[2023-11-23 14:31:56,497][INFO][blade.py:519] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:31:56,500][INFO][blade.py:531] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:31:56,500][DEBUG][blade.py:298] generate blade build file for [include/leveldb]
+[2023-11-23 14:31:56,500][DEBUG][blade.py:299] name: [leveldb]
+[2023-11-23 14:31:56,501][DEBUG][blade.py:326] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:31:56,501][DEBUG][blade.py:327] test_srcs = []
+[2023-11-23 14:31:56,501][DEBUG][blade.py:328] main_srcs = []
+[2023-11-23 14:31:56,501][DEBUG][blade.py:329] normal_srcs = []
+[2023-11-23 14:31:56,501][DEBUG][blade.py:330] proto_files = []
+[2023-11-23 14:31:56,501][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:31:56,501][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:31:56,501][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:31:56,501][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:31:56,501][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:31:56,501][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:31:56,501][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:31:56,502][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:31:56,502][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:31:56,502][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:31:56,502][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:31:56,502][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:31:56,502][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:31:56,502][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:31:56,502][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:31:56,502][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:31:56,502][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:31:56,503][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:31:56,503][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:31:56,503][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:31:56,503][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:31:56,503][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:31:56,503][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:31:56,503][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:31:56,503][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:31:56,503][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:31:56,503][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:31:56,503][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:31:56,503][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:31:56,504][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:31:56,504][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:31:56,504][DEBUG][blade.py:243] deps: []
+[2023-11-23 14:31:56,504][DEBUG][blade.py:440] cc_library=
+cc_library(
+    name='leveldb',
+    hdrs=[
+        'c.h',
+        'cache.h',
+        'comparator.h',
+        'db.h',
+        'dumpfile.h',
+        'env.h',
+        'export.h',
+        'filter_policy.h',
+        'iterator.h',
+        'options.h',
+        'slice.h',
+        'status.h',
+        'table.h',
+        'table_builder.h',
+        'write_batch.h',
+    ],
+    srcs=[
+    ],
+    deps=[
+    ],
+    visibility=['PUBLIC'],
+)
+
+[2023-11-23 14:31:56,504][INFO][blade.py:540] generate blade build files for [include/leveldb/] done!
+[2023-11-23 14:32:04,018][INFO][blade.py:519] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:32:07,705][INFO][blade.py:519] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:32:07,708][INFO][blade.py:531] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:32:07,708][DEBUG][blade.py:298] generate blade build file for [include/leveldb]
+[2023-11-23 14:32:07,708][DEBUG][blade.py:299] name: [leveldb]
+[2023-11-23 14:32:07,709][DEBUG][blade.py:326] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:32:07,709][DEBUG][blade.py:327] test_srcs = []
+[2023-11-23 14:32:07,709][DEBUG][blade.py:328] main_srcs = []
+[2023-11-23 14:32:07,709][DEBUG][blade.py:329] normal_srcs = []
+[2023-11-23 14:32:07,709][DEBUG][blade.py:330] proto_files = []
+[2023-11-23 14:32:07,709][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:32:07,709][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:32:07,709][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:32:07,709][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:32:07,709][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:32:07,710][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:32:07,710][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:32:07,710][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:32:07,710][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:32:07,710][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:32:07,710][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:32:07,710][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:32:07,711][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:32:07,712][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:32:07,712][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:32:07,712][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:32:07,712][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:32:07,712][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:32:07,712][DEBUG][blade.py:243] deps: []
+[2023-11-23 14:32:07,712][DEBUG][blade.py:440] cc_library=
+cc_library(
+    name='leveldb',
+    hdrs=[
+        'c.h',
+        'cache.h',
+        'comparator.h',
+        'db.h',
+        'dumpfile.h',
+        'env.h',
+        'export.h',
+        'filter_policy.h',
+        'iterator.h',
+        'options.h',
+        'slice.h',
+        'status.h',
+        'table.h',
+        'table_builder.h',
+        'write_batch.h',
+    ],
+    srcs=[
+    ],
+    deps=[
+    ],
+    visibility=['PUBLIC'],
+)
+
+[2023-11-23 14:32:07,712][INFO][blade.py:540] generate blade build files for [include/leveldb/] done!
+[2023-11-23 14:33:02,700][INFO][blade.py:519] log will be printed to [/home/zifeng/github/CodeReading/leveldb/logs/gen_blade_build.log]
+[2023-11-23 14:33:02,702][INFO][blade.py:531] folder_path: [include/leveldb/] is_recursive: [False]
+[2023-11-23 14:33:02,702][DEBUG][blade.py:298] generate blade build file for [include/leveldb]
+[2023-11-23 14:33:02,702][DEBUG][blade.py:299] name: [leveldb]
+[2023-11-23 14:33:02,703][DEBUG][blade.py:326] hdrs = ['include/leveldb/status.h', 'include/leveldb/write_batch.h', 'include/leveldb/table.h', 'include/leveldb/env.h', 'include/leveldb/c.h', 'include/leveldb/options.h', 'include/leveldb/export.h', 'include/leveldb/slice.h', 'include/leveldb/table_builder.h', 'include/leveldb/dumpfile.h', 'include/leveldb/filter_policy.h', 'include/leveldb/cache.h', 'include/leveldb/comparator.h', 'include/leveldb/db.h', 'include/leveldb/iterator.h']
+[2023-11-23 14:33:02,703][DEBUG][blade.py:327] test_srcs = []
+[2023-11-23 14:33:02,703][DEBUG][blade.py:328] main_srcs = []
+[2023-11-23 14:33:02,703][DEBUG][blade.py:329] normal_srcs = []
+[2023-11-23 14:33:02,703][DEBUG][blade.py:330] proto_files = []
+[2023-11-23 14:33:02,703][DEBUG][blade.py:144] generate Blade deps for folder [include/leveldb]
+[2023-11-23 14:33:02,703][DEBUG][blade.py:158] header_files in file [include/leveldb/status.h]: ['leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:33:02,703][DEBUG][blade.py:159] system header files in file [include/leveldb/status.h]: ['algorithm', 'string']
+[2023-11-23 14:33:02,703][DEBUG][blade.py:158] header_files in file [include/leveldb/write_batch.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:33:02,703][DEBUG][blade.py:159] system header files in file [include/leveldb/write_batch.h]: ['algorithm', 'string', 'string']
+[2023-11-23 14:33:02,703][DEBUG][blade.py:158] header_files in file [include/leveldb/table.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h']
+[2023-11-23 14:33:02,703][DEBUG][blade.py:159] system header files in file [include/leveldb/table.h]: ['algorithm', 'string', 'string', 'cstdint']
+[2023-11-23 14:33:02,704][DEBUG][blade.py:158] header_files in file [include/leveldb/env.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:33:02,704][DEBUG][blade.py:159] system header files in file [include/leveldb/env.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector']
+[2023-11-23 14:33:02,704][DEBUG][blade.py:158] header_files in file [include/leveldb/c.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:33:02,704][DEBUG][blade.py:159] system header files in file [include/leveldb/c.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h']
+[2023-11-23 14:33:02,704][DEBUG][blade.py:158] header_files in file [include/leveldb/options.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:33:02,704][DEBUG][blade.py:159] system header files in file [include/leveldb/options.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:33:02,704][DEBUG][blade.py:158] header_files in file [include/leveldb/export.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:33:02,704][DEBUG][blade.py:159] system header files in file [include/leveldb/export.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef']
+[2023-11-23 14:33:02,704][DEBUG][blade.py:158] header_files in file [include/leveldb/slice.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:159] system header files in file [include/leveldb/slice.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:158] header_files in file [include/leveldb/table_builder.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:159] system header files in file [include/leveldb/table_builder.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:158] header_files in file [include/leveldb/dumpfile.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:159] system header files in file [include/leveldb/dumpfile.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:158] header_files in file [include/leveldb/filter_policy.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:159] system header files in file [include/leveldb/filter_policy.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:158] header_files in file [include/leveldb/cache.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:159] system header files in file [include/leveldb/cache.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:158] header_files in file [include/leveldb/comparator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:159] system header files in file [include/leveldb/comparator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:158] header_files in file [include/leveldb/db.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h']
+[2023-11-23 14:33:02,705][DEBUG][blade.py:159] system header files in file [include/leveldb/db.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:33:02,706][DEBUG][blade.py:158] header_files in file [include/leveldb/iterator.h]: ['leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/options.h', 'leveldb/status.h', 'leveldb/env.h', 'leveldb/export.h', 'leveldb/status.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/export.h', 'leveldb/export.h', 'leveldb/iterator.h', 'leveldb/options.h', 'leveldb/export.h', 'leveldb/slice.h', 'leveldb/status.h']
+[2023-11-23 14:33:02,706][DEBUG][blade.py:159] system header files in file [include/leveldb/iterator.h]: ['algorithm', 'string', 'string', 'cstdint', 'cstdarg', 'cstdint', 'string', 'vector', 'stdarg.h', 'stddef.h', 'stdint.h', 'cstddef', 'cassert', 'cstddef', 'cstring', 'string', 'cstdint', 'string', 'string', 'cstdint', 'string', 'cstdint', 'cstdio']
+[2023-11-23 14:33:02,706][DEBUG][blade.py:243] deps: []
+[2023-11-23 14:33:02,706][DEBUG][blade.py:440] cc_library=
+cc_library(
+    name='leveldb',
+    hdrs=[
+        'c.h',
+        'cache.h',
+        'comparator.h',
+        'db.h',
+        'dumpfile.h',
+        'env.h',
+        'export.h',
+        'filter_policy.h',
+        'iterator.h',
+        'options.h',
+        'slice.h',
+        'status.h',
+        'table.h',
+        'table_builder.h',
+        'write_batch.h',
+    ],
+    srcs=[
+    ],
+    deps=[
+    ],
+    visibility=['PUBLIC'],
+)
+
+[2023-11-23 14:33:02,706][INFO][blade.py:540] generate blade build files for [include/leveldb/] done!
