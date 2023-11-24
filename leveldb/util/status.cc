@@ -18,13 +18,25 @@ const char* Status::CopyState(const char* state) {
   return result;
 }
 
+/**
+ * @brief 构造异常状态码
+ *
+ * @note state_[0..3] uint32_t 表示长度
+         state_[4] 表示状态码 code
+         state_[5..] 表示 err_msg
+ * @param code
+ * @param msg
+ * @param msg2
+ */
 Status::Status(Code code, const Slice& msg, const Slice& msg2) {
   assert(code != kOk);
   const uint32_t len1 = static_cast<uint32_t>(msg.size());
   const uint32_t len2 = static_cast<uint32_t>(msg2.size());
-  const uint32_t size = len1 + (len2 ? (2 + len2) : 0);
+  const uint32_t size = len1 + (len2 ? (2 + len2) : 0);  // 加上 `:` 和空格
   char* result = new char[size + 5];
+  // 前 4 byte 写入 size
   std::memcpy(result, &size, sizeof(size));
+  // 第 5 个 byte 写入 status_code
   result[4] = static_cast<char>(code);
   std::memcpy(result + 5, msg.data(), len1);
   if (len2) {
@@ -61,8 +73,7 @@ std::string Status::ToString() const {
         type = "IO error: ";
         break;
       default:
-        std::snprintf(tmp, sizeof(tmp),
-                      "Unknown code(%d): ", static_cast<int>(code()));
+        std::snprintf(tmp, sizeof(tmp), "Unknown code(%d): ", static_cast<int>(code()));
         type = tmp;
         break;
     }

@@ -2,11 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file. See the AUTHORS file for names of contributors.
 
-#ifndef STORAGE_LEVELDB_INCLUDE_DB_H_
-#define STORAGE_LEVELDB_INCLUDE_DB_H_
+#pragma once
 
 #include <cstdint>
 #include <cstdio>
+#include <string>
 
 #include "leveldb/export.h"
 #include "leveldb/iterator.h"
@@ -15,6 +15,7 @@
 namespace leveldb {
 
 // Update CMakeLists.txt if you change these
+// 版本号
 static const int kMajorVersion = 1;
 static const int kMinorVersion = 23;
 
@@ -26,6 +27,7 @@ class WriteBatch;
 // Abstract handle to particular state of a DB.
 // A Snapshot is an immutable object and can therefore be safely
 // accessed from multiple threads without any external synchronization.
+// DB 镜像，不允许修改因此是线程安全的
 class LEVELDB_EXPORT Snapshot {
  protected:
   virtual ~Snapshot();
@@ -34,7 +36,8 @@ class LEVELDB_EXPORT Snapshot {
 // A range of keys
 struct LEVELDB_EXPORT Range {
   Range() = default;
-  Range(const Slice& s, const Slice& l) : start(s), limit(l) {}
+  Range(const Slice& s, const Slice& l) : start(s), limit(l) {
+  }
 
   Slice start;  // Included in the range
   Slice limit;  // Not included in the range
@@ -50,8 +53,12 @@ class LEVELDB_EXPORT DB {
   // OK on success.
   // Stores nullptr in *dbptr and returns a non-OK status on error.
   // Caller should delete *dbptr when it is no longer needed.
-  static Status Open(const Options& options, const std::string& name,
-                     DB** dbptr);
+  //
+  // 创建一个名为 "name" 的 LevelDB
+  //   1. 成功返回 OK 和 *dbptr
+  //   2. 失败返回 non-OK 和空指针
+  // 使用完之后需要用户手动 delete *dbptr
+  static Status Open(const Options& options, const std::string& name, DB** dbptr);
 
   DB() = default;
 
@@ -63,8 +70,7 @@ class LEVELDB_EXPORT DB {
   // Set the database entry for "key" to "value".  Returns OK on success,
   // and a non-OK status on error.
   // Note: consider setting options.sync = true.
-  virtual Status Put(const WriteOptions& options, const Slice& key,
-                     const Slice& value) = 0;
+  virtual Status Put(const WriteOptions& options, const Slice& key, const Slice& value) = 0;
 
   // Remove the database entry (if any) for "key".  Returns OK on
   // success, and a non-OK status on error.  It is not an error if "key"
@@ -84,8 +90,7 @@ class LEVELDB_EXPORT DB {
   // a status for which Status::IsNotFound() returns true.
   //
   // May return some other Status on an error.
-  virtual Status Get(const ReadOptions& options, const Slice& key,
-                     std::string* value) = 0;
+  virtual Status Get(const ReadOptions& options, const Slice& key, std::string* value) = 0;
 
   // Return a heap-allocated iterator over the contents of the database.
   // The result of NewIterator() is initially invalid (caller must
@@ -131,8 +136,7 @@ class LEVELDB_EXPORT DB {
   // sizes will be one-tenth the size of the corresponding user data size.
   //
   // The results may not include the sizes of recently written data.
-  virtual void GetApproximateSizes(const Range* range, int n,
-                                   uint64_t* sizes) = 0;
+  virtual void GetApproximateSizes(const Range* range, int n, uint64_t* sizes) = 0;
 
   // Compact the underlying storage for the key range [*begin,*end].
   // In particular, deleted and overwritten versions are discarded,
@@ -152,16 +156,12 @@ class LEVELDB_EXPORT DB {
 //
 // Note: For backwards compatibility, if DestroyDB is unable to list the
 // database files, Status::OK() will still be returned masking this failure.
-LEVELDB_EXPORT Status DestroyDB(const std::string& name,
-                                const Options& options);
+LEVELDB_EXPORT Status DestroyDB(const std::string& name, const Options& options);
 
 // If a DB cannot be opened, you may attempt to call this method to
 // resurrect as much of the contents of the database as possible.
 // Some data may be lost, so be careful when calling this function
 // on a database that contains important information.
-LEVELDB_EXPORT Status RepairDB(const std::string& dbname,
-                               const Options& options);
+LEVELDB_EXPORT Status RepairDB(const std::string& dbname, const Options& options);
 
 }  // namespace leveldb
-
-#endif  // STORAGE_LEVELDB_INCLUDE_DB_H_

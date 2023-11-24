@@ -10,33 +10,43 @@
 // non-const method, all threads accessing the same Status must use
 // external synchronization.
 
-#ifndef STORAGE_LEVELDB_INCLUDE_STATUS_H_
-#define STORAGE_LEVELDB_INCLUDE_STATUS_H_
+#pragma once
 
 #include <algorithm>
 #include <string>
+#include <utility>
 
 #include "leveldb/export.h"
 #include "leveldb/slice.h"
 
 namespace leveldb {
 
+// 状态码
 class LEVELDB_EXPORT Status {
  public:
   // Create a success status.
-  Status() noexcept : state_(nullptr) {}
-  ~Status() { delete[] state_; }
+  Status() noexcept : state_(nullptr) {
+  }
+  ~Status() {
+    delete[] state_;
+  }
 
   Status(const Status& rhs);
   Status& operator=(const Status& rhs);
 
-  Status(Status&& rhs) noexcept : state_(rhs.state_) { rhs.state_ = nullptr; }
+  Status(Status&& rhs) noexcept : state_(rhs.state_) {
+    rhs.state_ = nullptr;
+  }
   Status& operator=(Status&& rhs) noexcept;
 
   // Return a success status.
-  static Status OK() { return Status(); }
+  static Status OK() {
+    return Status();
+  }
 
   // Return error status of an appropriate type.
+  //
+  // 构造 non-OK 状态码
   static Status NotFound(const Slice& msg, const Slice& msg2 = Slice()) {
     return Status(kNotFound, msg, msg2);
   }
@@ -54,22 +64,34 @@ class LEVELDB_EXPORT Status {
   }
 
   // Returns true iff the status indicates success.
-  bool ok() const { return (state_ == nullptr); }
+  bool ok() const {
+    return (state_ == nullptr);
+  }
 
   // Returns true iff the status indicates a NotFound error.
-  bool IsNotFound() const { return code() == kNotFound; }
+  bool IsNotFound() const {
+    return code() == kNotFound;
+  }
 
   // Returns true iff the status indicates a Corruption error.
-  bool IsCorruption() const { return code() == kCorruption; }
+  bool IsCorruption() const {
+    return code() == kCorruption;
+  }
 
   // Returns true iff the status indicates an IOError.
-  bool IsIOError() const { return code() == kIOError; }
+  bool IsIOError() const {
+    return code() == kIOError;
+  }
 
   // Returns true iff the status indicates a NotSupportedError.
-  bool IsNotSupportedError() const { return code() == kNotSupported; }
+  bool IsNotSupportedError() const {
+    return code() == kNotSupported;
+  }
 
   // Returns true iff the status indicates an InvalidArgument.
-  bool IsInvalidArgument() const { return code() == kInvalidArgument; }
+  bool IsInvalidArgument() const {
+    return code() == kInvalidArgument;
+  }
 
   // Return a string representation of this status suitable for printing.
   // Returns the string "OK" for success.
@@ -97,6 +119,8 @@ class LEVELDB_EXPORT Status {
   //    state_[0..3] == length of message
   //    state_[4]    == code
   //    state_[5..]  == message
+  //
+  // 状态码的内部存储方式，空指针表示 OK
   const char* state_;
 };
 
@@ -118,5 +142,3 @@ inline Status& Status::operator=(Status&& rhs) noexcept {
 }
 
 }  // namespace leveldb
-
-#endif  // STORAGE_LEVELDB_INCLUDE_STATUS_H_

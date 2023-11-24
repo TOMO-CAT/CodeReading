@@ -4,12 +4,16 @@
 
 #include "util/arena.h"
 
+#include <utility>
+
 #include "gtest/gtest.h"
 #include "util/random.h"
 
 namespace leveldb {
 
-TEST(ArenaTest, Empty) { Arena arena; }
+TEST(ArenaTest, Empty) {
+  Arena arena;
+}
 
 TEST(ArenaTest, Simple) {
   std::vector<std::pair<size_t, char*>> allocated;
@@ -22,9 +26,7 @@ TEST(ArenaTest, Simple) {
     if (i % (N / 10) == 0) {
       s = i;
     } else {
-      s = rnd.OneIn(4000)
-              ? rnd.Uniform(6000)
-              : (rnd.OneIn(10) ? rnd.Uniform(100) : rnd.Uniform(20));
+      s = rnd.OneIn(4000) ? rnd.Uniform(6000) : (rnd.OneIn(10) ? rnd.Uniform(100) : rnd.Uniform(20));
     }
     if (s == 0) {
       // Our arena disallows size 0 allocations.

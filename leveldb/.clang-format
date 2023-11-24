@@ -8,8 +8,9 @@ AllowShortFunctionsOnASingleLine: None
 AllowShortLambdasOnASingleLine: None
 DerivePointerAlignment: false
 PointerAlignment: Left
-CommentPragmas: '^ NOLINT'
+CommentPragmas: "^ NOLINT"
 ColumnLimit: 120
+AllowShortEnumsOnASingleLine: false
 ---
 
 Language: Proto
